@@ -1,0 +1,843 @@
+### Battle Conditions
+plains_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/plains_commander.dds
+	command_modifier = {
+		unit_offense_flat_mult = 0.25
+	}
+	possible = {
+		has_role = general
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 10
+	replace = {
+	}
+	value = 1
+}
+
+forest_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/forest_commander.dds
+	command_modifier = {
+		unit_defense_forested_mult = 0.25
+	}
+	possible = {
+		has_role = general
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 10
+	replace = {
+	}
+	value = 2
+}
+
+mountain_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/mountain_commander.dds
+	command_modifier = {
+		unit_defense_elevated_mult = 0.25
+	}
+	possible = {
+		has_role = general
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 10
+	replace = {
+	}
+	value = 1
+}
+
+surveyor = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/surveyor.dds
+	command_modifier = {
+		character_battle_condition_charted_terrain_mult = 1
+		character_battle_condition_mud_mult = -1
+	}
+	possible = {
+		has_role = general
+	}
+	weight = 10
+	replace = {
+	}
+	value = 1
+}
+
+### Offensive Specialist
+basic_offensive_planner = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/basic_offensive_planner.dds
+	command_modifier = {
+		unit_offense_mult = 0.05
+		character_battle_condition_in_position_mult = 0.1
+		character_battle_condition_lost_mult = -0.1
+	}
+	possible = {
+		has_role = general
+		owner ?= {
+			has_technology_researched = napoleonic_warfare
+		}
+		NOR = {
+			has_trait = experienced_offensive_planner
+			has_trait = expert_offensive_planner
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 20
+	replace = {
+	}
+	value = 1
+}
+
+experienced_offensive_planner = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/experienced_offensive_planner.dds
+	command_modifier = {
+		unit_offense_mult = 0.1
+		character_battle_condition_in_position_mult = 0.25
+		character_battle_condition_lost_mult = -0.25
+	}
+	possible = {
+		has_trait = basic_offensive_planner
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 50
+	replace = {
+		basic_offensive_planner
+	}
+	value = 2
+}
+
+expert_offensive_planner = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/expert_offensive_planner.dds"
+	command_modifier = {
+		unit_offense_mult = 0.25
+		character_battle_condition_in_position_mult = 0.5
+		character_battle_condition_lost_mult = -0.5
+	}
+	possible = {
+		has_trait = experienced_offensive_planner
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 50
+	replace = {
+		experienced_offensive_planner
+	}
+	value = 3
+}
+
+### Defensive Specialist
+basic_defensive_strategist = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/basic_defensive_strategist.dds"
+	command_modifier = {
+		unit_defense_mult = 0.05
+		character_battle_condition_dug_in_mult = 0.1
+		character_battle_condition_caught_off_guard_mult = -0.1
+	}
+	possible = {
+		has_role = general
+		owner ?= {
+			has_technology_researched = military_drill
+		}
+		NOR = {
+			has_trait = experienced_defensive_strategist
+			has_trait = expert_defensive_strategist
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 20
+	replace = {
+	}
+	value = 1
+}
+
+experienced_defensive_strategist = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/experienced_defensive_strategist.dds"
+	command_modifier = {
+		unit_defense_mult = 0.1
+		character_battle_condition_dug_in_mult = 0.25
+		character_battle_condition_caught_off_guard_mult = -0.25
+	}
+	possible = {
+		has_trait = basic_defensive_strategist
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 50
+	replace = {
+		basic_defensive_strategist
+	}
+	value = 2
+}
+
+expert_defensive_strategist = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/expert_defensive_strategist.dds"
+	command_modifier = {
+		unit_defense_mult = 0.25
+		character_battle_condition_dug_in_mult = 0.5
+		character_battle_condition_caught_off_guard_mult = -0.5
+	}
+	possible = {
+		has_trait = experienced_defensive_strategist
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = 50
+	replace = {
+		experienced_defensive_strategist
+	}
+	value = 3
+}
+
+### Logistics
+pillager = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/pillager.dds
+	command_modifier = {
+		unit_devastation_mult = 0.25
+		character_supply_route_cost_mult = -0.25
+		character_battle_condition_broken_supply_line_mult = -1
+	}
+	possible = {
+		has_role = general
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+		NOR = {
+			has_trait = resupply_commander
+			has_trait = logistics_expert
+		}
+	}
+	weight = 20
+	replace = {
+	}
+	value = 1
+}
+
+resupply_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/resupply_commander.dds
+	command_modifier = {
+		unit_supply_consumption_mult = -0.1
+		character_battle_condition_logistics_secured_mult = 1
+		character_battle_condition_broken_supply_line_mult = -0.5
+	}
+	possible = {
+		has_role = general
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+		NOT = {
+			has_trait = logistics_expert
+		}
+		owner ?= {
+			has_technology_researched = logistics
+		}
+	}
+	weight = {
+		value = 50
+		if = {
+			limit = {
+				has_trait = meticulous
+			}
+			multiply = 3
+		}
+	}
+	replace = {
+		pillager
+	}
+	value = 2
+}
+
+logistics_expert = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/resupply_commander.dds
+	command_modifier = {
+		unit_supply_consumption_mult = -0.25
+		character_battle_condition_logistics_secured_mult = 1
+		character_battle_condition_broken_supply_line_mult = -1
+	}
+	possible = {
+		has_role = general
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+		has_trait = resupply_commander
+		owner ?= {
+			has_technology_researched = military_statistics
+		}
+	}
+	weight = {
+		value = 50
+		if = {
+			limit = {
+				has_trait = meticulous
+			}
+			multiply = 3
+		}
+	}
+	replace = {
+		resupply_commander
+	}
+	value = 3
+}
+
+### Unit Types
+### Infantry
+stalwart_defender = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/stalwart_defender.dds
+	command_modifier = {
+		unit_defense_mult = 0.15
+		unit_recovery_rate_add = 0.1
+		character_battle_condition_dug_in_mult = 0.5
+	}
+	possible = {
+		has_role = general
+		owner ?= {
+			has_technology_researched = field_works
+		}
+		NOR = {
+			has_trait = trench_rat
+			has_trait = defense_in_depth_specialist
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 2
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_line_infantry
+								value >= 0.5
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_skirmish_infantry
+								value >= 0.5
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_trench_infantry
+								value >= 0.5
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_mechanized_infantry
+								value >= 0.5
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+	}
+	value = 1
+}
+
+defense_in_depth_specialist = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/defense_in_depth_specialist.dds
+	command_modifier = {
+		unit_defense_mult = 0.25
+		unit_recovery_rate_add = 0.15
+		character_battle_condition_dug_in_mult = 1
+	}
+	possible = {
+		has_trait = stalwart_defender
+		owner ?= {
+			has_technology_researched = defense_in_depth
+		}
+		NOT = {
+			has_trait = trench_rat
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 5
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_skirmish_infantry
+								value >= 0.5
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_trench_infantry
+								value >= 0.5
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_mechanized_infantry
+								value >= 0.5
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+		stalwart_defender
+	}
+	value = 2
+}
+
+trench_rat = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/trench_rat.dds
+	command_modifier = {
+		unit_defense_mult = 0.5
+		unit_recovery_rate_add = 0.25
+		character_battle_condition_dug_in_mult = 1
+		character_battle_condition_entrenched_mult = 1
+	}
+	possible = {
+		has_trait = defense_in_depth_specialist
+		owner ?= {
+			has_technology_researched = trench_works
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 5
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_trench_infantry
+								value >= 0.5
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_mechanized_infantry
+								value >= 0.5
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+		defense_in_depth_specialist
+	}
+	value = 3
+}
+
+### Artillery Commander
+basic_artillery_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/basic_artillery_commander.dds
+	command_modifier = {
+		unit_combat_unit_type_cannon_artillery_offense_mult = 0.05
+		unit_combat_unit_type_mobile_artillery_offense_mult = 0.05
+		unit_combat_unit_type_shrapnel_artillery_offense_mult = 0.05
+		unit_combat_unit_type_siege_artillery_offense_mult = 0.05
+		unit_combat_unit_type_motorized_artillery_offense_mult = 0.05
+		character_battle_condition_artillery_barrage_mult = 0.25
+		character_battle_condition_mud_mult = 0.5
+	}
+	possible = {
+		has_role = general
+		owner ?= {
+			has_technology_researched = artillery
+		}
+		NOR = {
+			has_trait = experienced_artillery_commander
+			has_trait = expert_artillery_commander
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 2
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_cannon_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_mobile_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_shrapnel_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_siege_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_motorized_artillery
+								value >= 0.25
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+	}
+	value = 1
+}
+
+experienced_artillery_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/experienced_artillery_commander.dds
+	command_modifier = {
+		unit_combat_unit_type_cannon_artillery_offense_mult = 0.1
+		unit_combat_unit_type_mobile_artillery_offense_mult = 0.1
+		unit_combat_unit_type_shrapnel_artillery_offense_mult = 0.1
+		unit_combat_unit_type_siege_artillery_offense_mult = 0.1
+		unit_combat_unit_type_motorized_artillery_offense_mult = 0.1
+		character_battle_condition_artillery_barrage_mult = 0.5
+		character_battle_condition_mud_mult = 0.5
+	}
+	possible = {
+		has_trait = basic_artillery_commander
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 5
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_cannon_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_mobile_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_shrapnel_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_siege_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_motorized_artillery
+								value >= 0.25
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+		basic_artillery_commander
+	}
+	value = 2
+}
+
+expert_artillery_commander = {
+	type = skill
+	texture = gfx/interface/icons/character_trait_icons/expert_artillery_commander.dds
+	command_modifier = {
+		unit_combat_unit_type_cannon_artillery_offense_mult = 0.25
+		unit_combat_unit_type_mobile_artillery_offense_mult = 0.25
+		unit_combat_unit_type_shrapnel_artillery_offense_mult = 0.25
+		unit_combat_unit_type_siege_artillery_offense_mult = 0.25
+		unit_combat_unit_type_motorized_artillery_offense_mult = 0.25
+		character_battle_condition_artillery_barrage_mult = 1
+		character_battle_condition_mud_mult = 0.5
+	}
+	possible = {
+		has_trait = experienced_artillery_commander
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 5
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_cannon_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_mobile_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_shrapnel_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_siege_artillery
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_motorized_artillery
+								value >= 0.25
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+		experienced_artillery_commander
+	}
+	value = 3
+}
+
+### Cavalry Commander
+basic_cavalry_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/convoy_raider_commander.dds"
+	command_modifier = {
+		unit_combat_unit_type_regular_cavalry_offense_mult = 0.05
+		unit_combat_unit_type_rifle_cavalry_offense_mult = 0.05
+		unit_combat_unit_type_tank_offense_mult = 0.05
+		unit_combat_unit_type_battle_tank_offense_mult = 0.05
+		character_battle_condition_rapid_advance_mult = 0.25
+		character_battle_condition_exhausted_pursuit_mult = 0.25
+	}
+	possible = {
+		has_role = general
+		owner ?= {
+			has_technology_researched = napoleonic_warfare
+		}
+		NOR = {
+			has_trait = experienced_cavalry_commander
+			has_trait = expert_cavalry_commander
+		}
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 2
+		if = {
+			limit = {
+				has_role = general
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_regular_cavalry
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_rifle_cavalry
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_tank
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_battle_tank
+								value >= 0.25
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+	}
+	value = 1
+}
+
+experienced_cavalry_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/experienced_convoy_raider.dds"
+	command_modifier = {
+		unit_combat_unit_type_regular_cavalry_offense_mult = 0.1
+		unit_combat_unit_type_rifle_cavalry_offense_mult = 0.1
+		unit_combat_unit_type_tank_offense_mult = 0.1
+		unit_combat_unit_type_battle_tank_offense_mult = 0.1
+		character_battle_condition_rapid_advance_mult = 0.5
+		character_battle_condition_exhausted_pursuit_mult = 0.25
+	}
+	possible = {
+		has_trait = basic_cavalry_commander
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 5
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_regular_cavalry
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_rifle_cavalry
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_tank
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_battle_tank
+								value >= 0.25
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+		basic_cavalry_commander
+	}
+	value = 2
+}
+
+expert_cavalry_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/expert_convoy_raider.dds"
+	command_modifier = {
+		unit_combat_unit_type_regular_cavalry_offense_mult = 0.25
+		unit_combat_unit_type_rifle_cavalry_offense_mult = 0.25
+		unit_combat_unit_type_tank_offense_mult = 0.25
+		unit_combat_unit_type_battle_tank_offense_mult = 0.25
+		character_battle_condition_rapid_advance_mult = 1
+		character_battle_condition_exhausted_pursuit_mult = 0.25
+	}
+	possible = {
+		has_trait = experienced_cavalry_commander
+		NOT = {
+			age < define:NCharacters|ADULT_AGE
+		}
+	}
+	weight = {
+		value = 5
+		if = {
+			limit = {
+				owner = {
+					any_military_formation = {
+						is_army = yes
+						any_scope_general = {
+							this = root
+						}
+						OR = {
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_regular_cavalry
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_rifle_cavalry
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_tank
+								value >= 0.25
+							}
+							formation_army_unit_type_fraction = {
+								target = unit_type:combat_unit_type_battle_tank
+								value >= 0.25
+							}
+						}
+					}
+				}
+			}
+			multiply = 10
+		}
+	}
+	replace = {
+		experienced_cavalry_commander
+	}
+	value = 3
+}

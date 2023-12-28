@@ -1,0 +1,315 @@
+﻿defend = {
+	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	entity_animation = "defend"
+	military_type = army
+	ai_usage = defend
+	is_basic_order_type = yes
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+	}
+	modifier = {
+		unit_defense_mult = 0.05
+		unit_morale_recovery_mult = 0.1
+	}
+	ai_weight = {
+		value = 1
+	}
+}
+
+# Counter-attack
+defend_counter_attack = {
+	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	entity_animation = "defend"
+	military_type = army
+	ai_usage = defend
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		OR = {
+			has_trait = reckless
+			has_trait = persistent
+			has_trait = direct
+			has_trait = arrogant
+			has_trait = ambitious
+			has_trait = imperious
+			has_trait = wrathful
+			has_trait = cruel
+			has_trait = brave
+			has_trait = imposing
+		}
+	}
+	modifier = {
+		unit_defense_mult = 0.1
+		unit_morale_recovery_mult = 0.1
+		unit_recovery_rate_add = -0.1
+		unit_kill_rate_add = 0.1
+		character_battle_condition_surprise_maneuver_mult = 0.5
+		character_battle_condition_blunder_mult = 0.5
+	}
+	ai_weight = {
+		value = 1
+	}
+}
+
+# Field Works
+defend_fortified = {
+	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	entity_animation = "defend"
+	military_type = army
+	ai_usage = defend
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		error_check = {
+			severity = invalid
+			owner = {
+				has_technology_researched = field_works
+			}
+		}
+		NOR = {
+			has_trait = reckless
+			has_trait = arrogant
+		}
+		AND = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_line_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_skirmish_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_trench_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mechanized_infantry
+						value >= 0.6
+					}
+				}
+			}
+		}
+	}
+	modifier = {
+		unit_defense_mult = 0.15
+		unit_morale_recovery_mult = 0.2
+		unit_morale_loss_mult = -0.15
+		character_battle_condition_dug_in_mult = 1
+		character_battle_condition_caught_off_guard_mult = -1
+	}
+	ai_weight = {
+		value = 2
+	}
+}
+
+# Delaying Tactics
+# character_battle_condition_delaying_maneuver_mult
+defend_delaying_tactics = {
+	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	entity_animation = "defend"
+	military_type = army
+	ai_usage = defend
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		error_check = {
+			severity = invalid
+			owner = {
+				has_technology_researched = defense_in_depth
+			}
+		}
+		NOR = {
+			has_trait = reckless
+			has_trait = arrogant
+		}
+		AND = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_skirmish_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_trench_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mechanized_infantry
+						value >= 0.6
+					}
+				}
+			}
+		}
+	}
+	modifier = {
+		unit_defense_mult = 0.25
+		unit_morale_recovery_mult = 0.2
+		unit_morale_loss_mult = -0.25
+		character_battle_condition_dug_in_mult = 1
+		character_battle_condition_surprise_maneuver_mult = 1
+		character_battle_condition_caught_off_guard_mult = -1.5
+	}
+	ai_weight = {
+		value = 3
+	}
+}
+
+# Entrench?
+# character_battle_condition_entrenched_mult
+defend_entrench = {
+	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	entity_animation = "defend"
+	military_type = army
+	ai_usage = defend
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		error_check = {
+			severity = invalid
+			owner = {
+				has_technology_researched = trench_works
+			}
+		}
+		NOR = {
+			has_trait = reckless
+			has_trait = arrogant
+		}
+		AND = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_trench_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mechanized_infantry
+						value >= 0.6
+					}
+				}
+			}
+		}
+	}
+	modifier = {
+		unit_defense_mult = 0.5
+		unit_morale_recovery_mult = 0.2
+		unit_morale_loss_mult = -0.25
+		character_battle_condition_entrenched_mult = 2
+		character_battle_condition_caught_off_guard_mult = -2
+	}
+	ai_weight = {
+		value = 4
+	}
+}
+
+# Organized
+defend_organized = {
+	texture = "gfx/interface/icons/commander_order_icons/defend.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_defend"
+	entity_animation = "defend"
+	military_type = army
+	ai_usage = defend
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		OR = {
+			# Smart
+			has_trait = innovative
+			has_trait = meticulous
+			# Generic
+			has_trait = basic_defensive_strategist
+			has_trait = experienced_defensive_strategist
+			has_trait = expert_defensive_strategist
+			# Specific
+			has_trait = stalwart_defender
+			has_trait = defense_in_depth_specialist
+			has_trait = trench_rat
+		}
+		AND = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_irregular_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_line_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_skirmish_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_trench_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mechanized_infantry
+						value >= 0.6
+					}
+				}
+			}
+		}
+	}
+	modifier = {
+		unit_defense_mult = 0.25
+		unit_morale_recovery_mult = 0.2
+		unit_morale_loss_mult = 0.25
+		character_battle_condition_careful_maneuver_mult = 1
+		character_battle_condition_caught_off_guard_mult = -1
+	}
+	ai_weight = {
+		value = 3
+	}
+}

@@ -1,0 +1,205 @@
+mobilization_option_first_aid = {
+	texture = "gfx/interface/icons/mobilization_options/basic_medical_aid.dds"
+	can_be_turned_off = {
+		custom_tooltip = {
+			text = mobilization_option_first_aid_can_be_turned_off_tt
+			error_check = {
+				severity = fail
+				always = no
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_fabric_add = 1
+	}
+	unit_modifier = {
+		unit_recovery_rate_add = 0.1
+	}
+	ai_weight = {
+		value = 1
+	}
+	group = medic_support
+}
+
+mobilization_option_field_surgery = {
+	unlocking_technologies = {
+		triage
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				has_mobilization_option = mobilization_option:mobilization_option_field_hospitals
+			}
+		}
+		market ?= {
+			mg:fabric ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:tools ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	texture = "gfx/interface/icons/mobilization_options/basic_medical_aid.dds"
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_add_medic_support_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	on_deactivate = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_and_organization_when_you_remove_medic_support_tt
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_fabric_add = 1
+		goods_input_tools_add = 1
+	}
+	unit_modifier = {
+		unit_recovery_rate_add = 0.2
+	}
+	ai_weight = {
+		value = 5
+	}
+	group = medic_support
+}
+
+mobilization_option_field_hospitals = {
+	texture = "gfx/interface/icons/mobilization_options/field_hospitals.dds"
+	unlocking_technologies = {
+		modern_nursing
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				has_mobilization_option = mobilization_option:mobilization_option_first_aid
+			}
+		}
+		market ?= {
+			mg:fabric ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:tools ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:liquor ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_add_medic_support_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	on_deactivate = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_and_organization_when_you_remove_medic_support_tt
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_fabric_add = 1
+		goods_input_tools_add = 1
+		goods_input_liquor_add = 1
+	}
+	unit_modifier = {
+		unit_recovery_rate_add = 0.3
+	}
+	ai_weight = {
+		value = 10
+	}
+	group = medic_support
+}
+
+mobilization_option_combat_medics = {
+	texture = "gfx/interface/icons/mobilization_options/field_hospitals.dds"
+	unlocking_technologies = {
+		combat_medics
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				has_mobilization_option = mobilization_option:mobilization_option_first_aid
+			}
+		}
+		market ?= {
+			mg:fabric ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:tools ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:liquor ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:luxury_clothes ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_add_medic_support_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	on_deactivate = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_and_organization_when_you_remove_medic_support_tt
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_fabric_add = 1
+		goods_input_tools_add = 1
+		goods_input_liquor_add = 1
+		goods_input_luxury_clothes_add = 1
+	}
+	unit_modifier = {
+		unit_recovery_rate_add = 0.4
+	}
+	ai_weight = {
+		value = 20
+	}
+	group = medic_support
+}

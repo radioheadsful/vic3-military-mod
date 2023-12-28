@@ -1,0 +1,12 @@
+{
+  "name" : "Radio's Military Tweaks",
+  "id" : "",
+  "version" : "0.1",
+  "supported_game_version" : "1.5.12",
+  "short_description" : "3121094441",
+  "tags" : [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

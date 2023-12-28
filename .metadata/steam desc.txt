@@ -1,0 +1,5 @@
+Radio's Military Tweaks is a rework of Victoria 3's military system that tries to stick to the existing game mechanics but changes them to give miltary more depth and a bit more historicity.
+
+The mod is currently WIP and is not balanced properly, especially in the late game - use at your own risk.
+
+The mod touches on many of the game concepts so it's not compatible with any other mods unless explicitly stated otherwise.

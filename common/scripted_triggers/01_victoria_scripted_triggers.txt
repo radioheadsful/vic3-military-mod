@@ -1,0 +1,80 @@
+﻿has_commander_traits = {
+	OR = {
+		has_trait = traditionalist_commander
+		has_trait = popular_commander
+		has_trait = celebrity_commander
+		has_trait = plains_commander
+		has_trait = forest_commander
+		has_trait = mountain_commander
+		has_trait = surveyor
+		has_trait = basic_offensive_planner
+		has_trait = experienced_offensive_planner
+		has_trait = expert_offensive_planner
+		has_trait = basic_defensive_strategist
+		has_trait = experienced_defensive_strategist
+		has_trait = expert_defensive_strategist
+		has_trait = pillager
+		has_trait = resupply_commander
+		has_trait = logistics_expert
+		has_trait = stalwart_defender
+		has_trait = defense_in_depth_specialist
+		has_trait = trench_rat
+		has_trait = basic_artillery_commander
+		has_trait = experienced_artillery_commander
+		has_trait = expert_artillery_commander
+		has_trait = basic_cavalry_commander
+		has_trait = experienced_cavalry_commander
+		has_trait = expert_cavalry_commander
+		has_trait = basic_naval_commander
+		has_trait = experienced_naval_commander
+		has_trait = expert_naval_commander
+		has_trait = convoy_raider_commander
+		has_trait = experienced_convoy_raider
+		has_trait = expert_convoy_raider
+		has_trait = dockyard_master
+	}
+}
+
+character_has_patrol_coast_order = {
+	OR = {
+		has_commander_order = patrol_coast
+		has_commander_order = patrol_carrier_assualt
+		has_commander_order = escort_convoys_advanced
+	}
+}
+
+character_has_raid_convoys_order = {
+	OR = {
+		has_commander_order = raid_convoys
+		has_commander_order = raid_unrestricted_sub
+	}
+}
+
+character_has_escort_convoys_order = {
+	OR = {
+		has_commander_order = escort_convoys
+		has_commander_order = escort_convoys_advanced
+	}
+}
+
+character_has_advance_order = {
+	OR = {
+		has_commander_order = advance
+		has_commander_order = advance_reckless
+		has_commander_order = advance_rapid
+		has_commander_order = advance_heavy
+		has_commander_order = advance_organized
+		has_commander_order = advance_planned
+	}
+}
+
+character_has_defend_order = {
+	OR = {
+		has_commander_order = defend
+		has_commander_order = defend_counter_attack
+		has_commander_order = defend_organized
+		has_commander_order = defend_fortified
+		has_commander_order = defend_delaying_tactics
+		has_commander_order = defend_entrench
+	}
+}

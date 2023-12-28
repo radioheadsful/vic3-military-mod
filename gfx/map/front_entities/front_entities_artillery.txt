@@ -1,0 +1,37 @@
+﻿#################################################################
+#####					ARTILLERY UNITS						#####
+#################################################################
+military_artillery_cannon_generic_diorama_entity = {
+	entity = "military_artillery_cannon_generic_entity"
+	group = "artillery"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_cannon_artillery
+	}
+}
+
+military_artillery_mobile_generic_diorama_entity = {
+	entity = "military_artillery_mobile_generic_entity"
+	group = "artillery"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_mobile_artillery
+	}
+}
+
+military_artillery_shrapnel_generic_diorama_entity = {
+	entity = "military_artillery_shrapnel_generic_entity"
+	group = "artillery"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_shrapnel_artillery
+	}
+}
+
+military_artillery_siege_generic_diorama_entity = {
+	entity = "military_artillery_siege_generic_entity"
+	group = "artillery"
+	trigger = {
+		OR = {
+			scope:combat_unit_type = unit_type:combat_unit_type_siege_artillery
+			scope:combat_unit_type = unit_type:combat_unit_type_motorized_artillery
+		}
+	}
+}

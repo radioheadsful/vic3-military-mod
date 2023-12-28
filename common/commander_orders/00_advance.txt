@@ -1,0 +1,283 @@
+﻿# Always possible 
+advance = {
+	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_advance"
+	entity_animation = "advance"
+	military_type = army
+	ai_usage = advance
+	is_basic_order_type = yes
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+	}
+	modifier = {
+		character_advancement_speed_add = 5
+		unit_offense_mult = 0.05
+	}
+	ai_weight = {
+		value = 1
+	}
+}
+
+advance_reckless = {
+	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_advance"
+	entity_animation = "advance"
+	military_type = army
+	ai_usage = advance
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		OR = {
+			has_trait = ambitious
+			has_trait = arrogant
+			has_trait = brave
+			has_trait = cruel
+			has_trait = direct
+			has_trait = imperious
+			has_trait = imposing
+			has_trait = persistent
+			has_trait = reckless
+			has_trait = wrathful
+		}
+	}
+	modifier = {
+		character_advancement_speed_add = 7
+		unit_offense_mult = 0.1
+		unit_recovery_rate_add = -0.1
+		character_battle_condition_aggressive_maneuver_mult = 0.5
+		character_battle_condition_blunder_mult = 0.5
+	}
+	ai_weight = {
+		value = 1
+	}
+}
+
+# Organized
+# General Staff
+advance_planned = {
+	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_advance"
+	entity_animation = "advance"
+	military_type = army
+	ai_usage = advance
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		error_check = {
+			severity = invalid
+			owner = {
+				has_technology_researched = general_staff
+			}
+		}
+		NOR = {
+			has_trait = arrogant
+			has_trait = bigoted
+			has_trait = reckless
+		}
+	}
+	modifier = {
+		character_advancement_speed_add = 5
+		character_battle_condition_in_position_mult = 1
+		character_battle_condition_lost_mult = -1
+		unit_offense_mult = 0.1
+		unit_morale_loss_mult = -0.1
+	}
+	ai_weight = {
+		value = 2
+	}
+}
+
+# Planned
+# Wargaming
+advance_organized = {
+	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_advance"
+	entity_animation = "advance"
+	military_type = army
+	ai_usage = advance
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		error_check = {
+			severity = invalid
+			owner = {
+				has_technology_researched = wargaming
+			}
+		}
+		NOR = {
+			has_trait = arrogant
+			has_trait = bigoted
+			has_trait = reckless
+		}
+	}
+	modifier = {
+		character_advancement_speed_add = 5
+		character_battle_condition_in_position_mult = 1
+		character_battle_condition_organized_deployment_mult = 1
+		character_battle_condition_lost_mult = -1
+		unit_offense_mult = 0.25
+		unit_morale_loss_mult = -0.25
+	}
+	ai_weight = {
+		value = 3
+	}
+}
+
+# Must have cav and tech
+advance_rapid = {
+	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_advance"
+	entity_animation = "advance"
+	military_type = army
+	ai_usage = advance
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		OR = {
+			# Smart
+			has_trait = innovative
+			has_trait = meticulous
+			# Generic
+			has_trait = basic_offensive_planner
+			has_trait = experienced_offensive_planner
+			has_trait = expert_offensive_planner
+			# Specific
+			has_trait = basic_cavalry_commander
+			has_trait = experienced_cavalry_commander
+			has_trait = expert_cavalry_commander
+		}
+		AND = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_irregular_cavalry
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_regular_cavalry
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_rifle_cavalry
+						value >= 0.25
+					}
+				}
+				# Early tanks are excluded on purpose
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_battle_tank
+						value >= 0.25
+					}
+				}
+			}
+		}
+	}
+	modifier = {
+		character_advancement_speed_add = 7
+		character_battle_condition_rapid_advance_mult = 1
+		character_battle_condition_exhausted_pursuit_mult = 1
+		unit_offense_mult = 0.25
+		unit_occupation_mult = 0.25
+		unit_recovery_rate_add = -0.25
+	}
+	ai_weight = {
+		value = 2
+	}
+}
+
+# Must have arty and tech
+# character_battle_condition_artillery_barrage_mult
+advance_heavy = {
+	texture = "gfx/interface/icons/commander_order_icons/advance.dds"
+	clicksound = "event:/SFX/UI/Military/order_general_front_advance"
+	entity_animation = "advance"
+	military_type = army
+	ai_usage = advance
+	experience = 0.1
+	possible = {
+		error_check = {
+			severity = invalid
+			has_role = general
+		}
+		OR = {
+			# Smart
+			has_trait = innovative
+			has_trait = meticulous
+			# Generic
+			has_trait = basic_offensive_planner
+			has_trait = experienced_offensive_planner
+			has_trait = expert_offensive_planner
+			# Specific
+			has_trait = basic_artillery_commander
+			has_trait = experienced_artillery_commander
+			has_trait = expert_artillery_commander
+		}
+		AND = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_cannon_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mobile_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_shrapnel_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_siege_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_motorized_artillery
+						value >= 0.25
+					}
+				}
+			}
+		}
+	}
+	modifier = {
+		character_advancement_speed_add = 3
+		character_battle_condition_artillery_barrage_mult = 1
+		character_battle_condition_mud_mult = 1
+		unit_offense_mult = 0.25
+		unit_kill_rate_add = 0.25
+		unit_devastation_mult = 0.25
+	}
+	ai_weight = {
+		value = 2
+	}
+}

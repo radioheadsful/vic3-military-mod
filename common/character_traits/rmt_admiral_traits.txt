@@ -1,0 +1,227 @@
+#Admiral Skills
+
+dockyard_master = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/drydock_repairs.dds"
+
+	command_modifier = {
+		unit_supply_consumption_mult = -0.25
+		# repair speed
+	}
+
+	possible = {
+		has_role = admiral
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = {
+		value = 10
+		if = {
+			limit = {
+				owner ?= {
+					has_technology_researched = logistics
+				}
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = meticulous
+			}
+			multiply = 3
+		}
+	}
+
+	replace = {
+	}
+
+	value = 1
+}
+
+basic_naval_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/basic_naval_commander.dds"
+
+	command_modifier = {
+		unit_offense_mult = 0.1
+		unit_defense_mult = 0.1
+	}
+
+	possible = {
+		has_role = admiral
+		owner ?= {
+			has_technology_researched = admiralty
+		}
+		NOR = {
+			has_trait = experienced_naval_commander
+			has_trait = expert_naval_commander
+		}
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = 20
+
+	replace = {
+	}
+
+	value = 1
+}
+
+experienced_naval_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/experienced_naval_commander.dds"
+
+	command_modifier = {
+		unit_offense_mult = 0.2
+		unit_defense_mult = 0.2
+		character_battle_condition_rough_waters_mult = -0.25
+	}
+
+	possible = {
+		has_trait = basic_naval_commander
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = 50
+
+	replace = {
+		basic_naval_commander
+	}
+
+	value = 2
+}
+
+expert_naval_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/expert_naval_commander.dds"
+
+	command_modifier = {
+		unit_offense_mult = 0.3
+		unit_defense_mult = 0.3
+		character_battle_condition_rough_waters_mult = -0.5
+	}
+
+	possible = {
+		has_trait = experienced_naval_commander
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = 50
+
+	replace = {
+		experienced_naval_commander
+	}
+
+	value = 3
+}
+
+convoy_raider_commander = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/convoy_raider_commander.dds"
+
+	command_modifier = {
+		character_convoy_raiding_mult = 0.1
+		unit_combat_unit_type_submarine_offense_mult = 0.1
+	}
+
+	possible = {
+		has_role = admiral
+		owner ?= {
+			has_technology_researched = admiralty
+		}
+		NOR = {
+			has_trait = experienced_convoy_raider
+			has_trait = expert_convoy_raider
+		}
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = {
+		value = 10
+		if = {
+			limit = {
+				OR = {
+					has_trait = persistent
+					has_trait = reckless
+					has_trait = cruel
+				}
+			}
+			multiply = 2
+		}
+	}
+
+	replace = {
+	}
+
+	value = 1
+}
+
+experienced_convoy_raider = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/experienced_convoy_raider.dds"
+
+	command_modifier = {
+		character_convoy_raiding_mult = 0.5
+		unit_combat_unit_type_submarine_offense_mult = 0.15
+	}
+
+	possible = {
+		has_trait = convoy_raider_commander
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = {
+		value = 20
+		if = {
+			limit = {
+				OR = {
+					has_trait = persistent
+					has_trait = reckless
+					has_trait = cruel
+				}
+			}
+			multiply = 2
+		}
+	}
+
+	replace = {
+		convoy_raider_commander
+	}
+
+	value = 2
+}
+
+expert_convoy_raider = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/expert_convoy_raider.dds"
+
+	command_modifier = {
+		character_convoy_raiding_mult = 1.5
+		unit_combat_unit_type_submarine_offense_mult = 0.25
+	}
+
+	possible = {
+		has_trait = experienced_convoy_raider
+		NOT = { age < define:NCharacters|ADULT_AGE }
+	}
+
+	weight = {
+		value = 20
+		if = {
+			limit = {
+				OR = {
+					has_trait = persistent
+					has_trait = reckless
+					has_trait = cruel
+				}
+			}
+			multiply = 2
+		}
+	}
+
+	replace = {
+		experienced_convoy_raider
+	}
+
+	value = 3
+}

@@ -1,0 +1,215 @@
+# INPUT GOODS
+goods_input_luxury_clothes_add = {
+	good = no
+	percent = no
+}
+
+goods_input_coffee_add = {
+	good = no
+	percent = no
+}
+
+goods_input_grain_mult = {
+	good = no
+	percent = yes
+	num_decimals = 0
+}
+
+goods_input_clothes_mult = {
+	good = no
+	percent = yes
+	num_decimals = 0
+}
+
+# UNIT TYPE STAT MODIFIERS
+unit_combat_unit_type_irregular_infantry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_irregular_infantry_defense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_line_infantry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_line_infantry_defense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_skirmish_infantry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_skirmish_infantry_defense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_trench_infantry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_trench_infantry_defense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_mechanized_infantry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_mechanized_infantry_defense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_rifle_cavalry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_rifle_cavalry_defense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_skirmish_infantry_kill_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_trench_infantry_kill_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_mechanized_infantry_kill_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_army_recovery_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_cannon_artillery_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_mobile_artillery_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_motorized_artillery_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_regular_cavalry_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_tank_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_battle_tank_offense_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+# BATTLECON MODIFIERS
+character_battle_condition_entrenched_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+}
+
+character_battle_condition_caught_off_guard_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+}
+
+character_battle_condition_in_position_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+}
+
+character_battle_condition_organized_deployment_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+}
+
+character_battle_condition_artillery_barrage_mult = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+}
+
+character_battle_condition_exhausted_pursuit_mult = {
+	good = no
+	percent = yes
+	num_decimals = 0
+}

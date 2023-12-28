@@ -1,0 +1,144 @@
+mobilization_option_half_rations = {
+	group = rations
+	texture = "gfx/interface/icons/production_method_icons/bakeries.dds"
+	can_be_turned_off = {
+		custom_tooltip = {
+			text = mobilization_option_basic_supplies_can_be_turned_off_tt
+			always = no
+		}
+	}
+	upkeep_modifier = {
+		goods_input_grain_add = 1
+	}
+	unit_modifier = {
+		unit_morale_loss_mult = 0.05
+	}
+	ai_weight = {
+		value = 0
+	}
+}
+
+mobilization_option_normal_rations = {
+	group = rations
+	texture = "gfx/interface/icons/mobilization_options/basic_supplies.dds"
+	on_deactivate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_when_you_remove_supplies_while_in_combat_tt
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+		}
+	}
+	can_be_turned_off = {
+		custom_tooltip = {
+			text = mobilization_option_basic_supplies_can_be_turned_off_tt
+			NOT = {
+				scope:military_formation = {
+					has_mobilization_option = mobilization_option:mobilization_option_double_rations
+				}
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_meat_add = 0.5
+	}
+	unit_modifier = {
+		unit_morale_loss_mult = -0.05
+	}
+	ai_weight = {
+		value = 2
+	}
+}
+
+mobilization_option_double_rations = {
+	group = rations
+	texture = "gfx/interface/icons/mobilization_options/extra_supplies.dds"
+	unlocking_technologies = {
+		army_reserves
+	}
+	on_deactivate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_when_you_remove_supplies_while_in_combat_tt
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+		}
+	}
+	can_be_turned_off = {
+		custom_tooltip = {
+			text = mobilization_option_basic_supplies_can_be_turned_off_tt
+			NOT = {
+				scope:military_formation = {
+					has_mobilization_option = mobilization_option:mobilization_option_triple_rations
+				}
+			}
+		}
+	}
+	possible = {
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_normal_rations
+		}
+		market ?= {
+			mg:groceries ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_groceries_add = 0.5
+
+	}
+	unit_modifier = {
+		unit_morale_loss_mult = -0.1
+	}
+	ai_weight = {
+		value = 5
+	}
+}
+
+mobilization_option_triple_rations = {
+	group = rations
+	texture = "gfx/interface/icons/mobilization_options/luxurious_supplies.dds"
+	unlocking_technologies = {
+		logistics
+	}
+	on_deactivate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_morale_when_you_remove_supplies_while_in_combat_tt
+			every_combat_unit = {
+				add_morale = {
+					value = morale
+					multiply = -0.5
+				}
+			}
+		}
+	}
+	possible = {
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_double_rations
+		}
+		market ?= {
+			mg:meat ?= {
+				market_goods_sell_orders > 0
+			}
+			mg:wine ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	upkeep_modifier = {
+		goods_input_fruit_add = 0.5
+	}
+	unit_modifier = {
+		unit_morale_loss_mult = -0.15
+	}
+	ai_weight = {
+		value = 5
+	}
+}

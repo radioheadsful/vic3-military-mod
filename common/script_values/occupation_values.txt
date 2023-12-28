@@ -1,0 +1,225 @@
+﻿### Constants
+@base_occupation_score = 100
+@min_occupation_score = 100
+@max_occupation_score = 1000
+# Weights
+@state_province_weight_points = 10
+@state_population_weight_points = 0.001
+@state_urbanization_weight_points = 100
+@state_infra_weight_points = 20
+# Main factors
+@state_num_provinces_factor = 1
+@state_population_density_factor = 1
+@state_urbanization_factor = 5
+# Province types penalty weights
+@hazardous_terrain_factor = 2
+@elevated_terrain_factor = 1.5
+@forested_terrain_factor = 1.25
+@infra_counter_factor = 1.5
+# Offense / defense weights
+@defensive_battalions_factor_min = 0.5
+@defensive_battalions_factor_max = 1.5
+@winning_ratio_factor = 0.5
+concentration_of_defensive_mobilized_battalions = {
+	add = num_mobilized_units_in_theater
+	divide = num_provinces_in_theater
+}
+
+provinces_with_hazardous_terrain = {
+	every_province = {
+		if = {
+			limit = {
+				has_label = label_hazardous
+			}
+			add = 1
+		}
+	}
+}
+
+provinces_with_forested_terrain = {
+	every_province = {
+		if = {
+			limit = {
+				has_label = label_forested
+			}
+			add = 1
+		}
+	}
+}
+
+provinces_with_elevated_terrain = {
+	every_province = {
+		if = {
+			limit = {
+				has_label = label_elevated
+			}
+			add = 1
+		}
+	}
+}
+
+provinces_total = {
+	every_province = {
+		add = 1
+	}
+}
+
+urbanization_total = {
+	every_scope_building = {
+		limit = {
+			is_building_type = building_urban_center
+		}
+		add = level
+	}
+}
+
+regular_provinces = {
+	add = provinces_total
+	subtract = provinces_with_hazardous_terrain
+	subtract = provinces_with_forested_terrain
+	subtract = provinces_with_elevated_terrain
+}
+
+# root = state
+# is_advancing_side = true if the state is being occupied
+occupation_cost = {
+	# Start with the size of the state
+	add = {
+		add = regular_provinces
+		multiply = @[state_province_weight_points]
+		multiply = @[state_num_provinces_factor]
+		max = 200
+		min = 100
+		desc = "OCCUPATION_COST_FROM_NUM_PROVINCES"
+	}
+	# Add the population density
+	add = {
+		add = state_population
+		divide = provinces_total
+		multiply = @[state_population_weight_points]
+		multiply = @[state_population_density_factor]
+		max = 300
+		min = 100
+		desc = "OCCUPATION_COST_FROM_POPULATION"
+	}
+	# Urbanisation ratio
+	add = {
+		add = urbanization_total
+		divide = provinces_total
+		multiply = @[state_urbanization_weight_points]
+		multiply = @[state_urbanization_factor]
+		max = 400
+		min = 100
+		desc = "OCCUPATION_COST_FROM_URBANIZATION"
+	}
+	save_temporary_value_as = base_cost
+	# cost increases for every province with difficult terrain, up to a limit set by infrastructure used in the state
+	if = {
+		limit = {
+			provinces_with_hazardous_terrain > 0
+		}
+		add = {
+			add = provinces_with_hazardous_terrain
+			multiply = @[state_province_weight_points]
+			multiply = @[hazardous_terrain_factor]
+			desc = "OCCUPATION_COST_FROM_NUM_HAZARDOUS_PROVINCES"
+		}
+	}
+	if = {
+		limit = {
+			provinces_with_forested_terrain > 0
+		}
+		add = {
+			add = provinces_with_forested_terrain
+			multiply = @[state_province_weight_points]
+			multiply = @[forested_terrain_factor]
+			desc = "OCCUPATION_COST_FROM_NUM_FORESTED_PROVINCES"
+		}
+	}
+	if = {
+		limit = {
+			provinces_with_elevated_terrain > 0
+		}
+		add = {
+			add = provinces_with_elevated_terrain
+			multiply = @[state_province_weight_points]
+			multiply = @[elevated_terrain_factor]
+			desc = "OCCUPATION_COST_FROM_NUM_ELEVATED_PROVINCES"
+		}
+	}
+	# Decrease the impact of difficult terrain based on the infrastructure available in the state.
+	if = {
+		limit = {
+			infrastructure_usage > 1
+		}
+		subtract = {
+			add = infrastructure_usage
+			divide = @[state_infra_weight_points]
+			multiply = @[state_province_weight_points]
+			multiply = @[infra_counter_factor]
+			max = {
+				add = {
+					add = provinces_with_hazardous_terrain
+					multiply = @[state_province_weight_points]
+					multiply = @[hazardous_terrain_factor]
+				}
+				add = {
+					add = provinces_with_forested_terrain
+					multiply = @[state_province_weight_points]
+					multiply = @[forested_terrain_factor]
+				}
+				add = {
+					add = provinces_with_elevated_terrain
+					multiply = @[state_province_weight_points]
+					multiply = @[elevated_terrain_factor]
+				}
+			}
+			desc = "OCCUPATION_COST_FROM_INFRASTRUCTURE_USAGE"
+		}
+	}
+	# Adjust the cost based on the concentration of defensive battalions.
+	theater = {
+		if = {
+			limit = {
+				scope:is_advancing_side = yes
+			}
+			multiply = {
+				value = concentration_of_defensive_mobilized_battalions
+				min = @[defensive_battalions_factor_min]
+				max = @[defensive_battalions_factor_max]
+			}
+			desc = "OCCUPATION_COST_FROM_CONCENTRATION_OF_BATTALIONS"
+		}
+	}
+	# Limit to the hard ceiling
+	save_temporary_value_as = pre_max_cost
+	if = {
+		limit = {
+			scope:pre_max_cost > @[max_occupation_score]
+		}
+		max = @[max_occupation_score]
+		desc = "OCCUPATION_COST_MAX_VALUE_REACHED"
+	}
+}
+
+# root = battleside
+battle_victory_score = {
+	add = {
+		add = @[base_occupation_score]
+		desc = "BATTLE_VICTORY_BASE"
+	}
+	add = {
+		add = @[base_occupation_score]
+		multiply = {
+			add = current_manpower
+			divide = starting_manpower
+			multiply = @[winning_ratio_factor]
+		}
+		desc = "BATTLE_VICTORY_WINNING_RATIO"
+	}
+	add = {
+		add = @[base_occupation_score]
+		multiply = modifier:unit_occupation_mult
+		desc = "BATTLE_VICTORY_UNIT_OCCUPATION_MULT"
+	}
+}

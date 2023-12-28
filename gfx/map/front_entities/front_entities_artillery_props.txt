@@ -1,0 +1,72 @@
+﻿#################################################################
+#####						PROPS_ARTILLERY						#####
+#################################################################
+military_props_artillery_canon_01_diorama_entity = {
+	entity = "military_props_artillery_cannon_01_entity"
+	group = "props_artillery_01"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_cannon_artillery
+	}
+}
+
+military_props_artillery_canon_02_diorama_entity = {
+	entity = "military_props_artillery_cannon_02_entity"
+	group = "props_artillery_02"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_cannon_artillery
+	}
+}
+
+military_props_artillery_mobile_01_diorama_entity = {
+	entity = "military_props_artillery_mobile_01_entity"
+	group = "props_artillery_01"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_mobile_artillery
+	}
+}
+
+military_props_artillery_mobile_02_diorama_entity = {
+	entity = "military_props_artillery_mobile_02_entity"
+	group = "props_artillery_02"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_mobile_artillery
+	}
+}
+
+military_props_artillery_shrapnel_01_diorama_entity = {
+	entity = "military_props_artillery_shrapnel_01_entity"
+	group = "props_artillery_01"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_shrapnel_artillery
+	}
+}
+
+military_props_artillery_shrapnel_02_diorama_entity = {
+	entity = "military_props_artillery_shrapnel_02_entity"
+	group = "props_artillery_02"
+	trigger = {
+		scope:combat_unit_type = unit_type:combat_unit_type_shrapnel_artillery
+	}
+}
+
+military_props_artillery_siege_01_diorama_entity = {
+	entity = "military_props_artillery_siege_01_entity"
+	group = "props_artillery_01"
+	trigger = {
+		OR = {
+			scope:combat_unit_type = unit_type:combat_unit_type_siege_artillery
+			scope:combat_unit_type = unit_type:combat_unit_type_motorized_artillery
+		}
+	}
+}
+
+military_props_artillery_siege_02_diorama_entity = {
+	entity = "military_props_artillery_siege_02_entity"
+	group = "props_artillery_02"
+	trigger = {
+		OR = {
+			scope:combat_unit_type = unit_type:combat_unit_type_siege_artillery
+			scope:combat_unit_type = unit_type:combat_unit_type_motorized_artillery
+		}
+	}
+}

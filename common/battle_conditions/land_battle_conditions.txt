@@ -1,0 +1,1509 @@
+﻿battle_condition_poor_visibility = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_poor_visibility.dds"
+
+	modifier = {
+		unit_offense_mult = -0.1
+		unit_defense_mult = -0.1
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		NOR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_mud
+			has_battle_condition = battle_condition_charted_terrain
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				province = {
+					OR = {
+						has_terrain = forest
+						has_terrain = mountain
+						has_terrain = jungle
+						has_terrain = desert
+					}
+				}
+			}
+			multiply = 2
+		}
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_poor_visibility_mult
+			}
+			min = 0
+		}
+	}
+}
+
+battle_condition_good_visibility = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_good_visibility.dds"
+
+	modifier = {
+		unit_offense_mult = 0.1
+		unit_defense_mult = 0.1
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		NOR = {
+			# Env
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_mud
+			has_battle_condition = battle_condition_charted_terrain
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				province = {
+					OR = {
+						has_terrain = plains
+						has_terrain = wetland
+						has_terrain = savanna
+						has_terrain = pasture
+					}
+				}
+			}
+			multiply = 2
+		}
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_good_visibility_mult
+			}
+			min = 0
+		}
+	}
+}
+
+battle_condition_mud = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_mud.dds"
+
+	modifier = {
+		unit_offense_mult = -0.2
+		unit_defense_mult = -0.2
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		NOR = {
+			# Env
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				province = {
+					OR = {
+						has_terrain = pasture
+						has_terrain = river
+						has_terrain = wetland
+						has_terrain = jungle
+					}
+				}
+			}
+			multiply = 2
+		}
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_mud_mult
+			}
+			min = 0
+		}
+	}
+}
+
+battle_condition_charted_terrain = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_charted_terrain.dds"
+
+	modifier = {
+		unit_offense_mult = 0.2
+		unit_defense_mult = 0.2
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		NOR = {
+			# Env
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_mud
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				province = {
+					OR = {
+						has_terrain = forest
+						has_terrain = mountain
+						has_terrain = jungle
+						has_terrain = desert
+					}
+				}
+			}
+			divide = 2
+		}
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_charted_terrain_mult
+			}
+			min = 0
+		}
+	}
+}
+
+## DEPLOYMENT
+
+battle_condition_logistics_secured = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_logistics_secured.dds"
+
+	modifier = {
+		unit_morale_loss_mult = -0.25
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_logistics_secured_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_charted_terrain
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_mud
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+battle_condition_broken_supply_line = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_broken_supply_line.dds"
+
+	modifier = {
+		unit_morale_loss_mult = 0.25
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_broken_supply_line_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_mud
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_charted_terrain
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+### DEFENDER
+
+battle_condition_dug_in = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_camouflaged.dds"
+
+	modifier = {
+		unit_army_defense_mult = 0.25
+		unit_morale_loss_mult = -0.25
+	}
+	
+	possible = {
+		scope:is_advancing_side = no
+		exists = scope:character
+		scope:character = { 
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_line_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_skirmish_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_trench_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mechanized_infantry
+						value >= 0.6
+					}
+				}
+			}			
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_dug_in_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_good_visibility
+					has_battle_condition = battle_condition_charted_terrain
+				}
+			}
+			multiply = 2
+		}
+	}
+}
+
+battle_condition_entrenched = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_dug_in.dds"
+
+	modifier = {
+		unit_army_defense_mult = 0.5
+		unit_morale_loss_mult = -0.5
+	}
+	
+	possible = {
+		scope:is_advancing_side = no
+		exists = scope:character
+		scope:character = { 
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_trench_infantry
+						value >= 0.6
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mechanized_infantry
+						value >= 0.6
+					}
+				}
+			}
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_entrenched_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_good_visibility
+					has_battle_condition = battle_condition_charted_terrain
+				}
+			}
+			multiply = 2
+		}
+	}
+}
+
+battle_condition_caught_off_guard = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_lost.dds"
+
+	modifier = {
+		unit_army_defense_mult = -0.25
+		unit_morale_loss_mult = 0.25
+	}
+
+	possible = {
+		scope:is_advancing_side = no
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_caught_off_guard_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_poor_visibility
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_good_visibility
+						has_battle_condition = battle_condition_charted_terrain
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+### ATTACKER
+
+battle_condition_in_position = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_logistics_secured.dds"
+
+	modifier = {
+		unit_offense_mult = 0.1
+		unit_morale_loss_mult = -0.1
+	}
+
+	possible = {
+		scope:is_advancing_side = yes
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_in_position_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_good_visibility
+					has_battle_condition = battle_condition_charted_terrain
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_poor_visibility
+						has_battle_condition = battle_condition_mud
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+battle_condition_organized_deployment = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_careful_maneuver.dds"
+
+	modifier = {
+		unit_offense_mult = 0.25
+		unit_morale_loss_mult = -0.25
+	}
+
+	possible = {
+		scope:is_advancing_side = yes
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_organized_deployment_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_good_visibility
+					has_battle_condition = battle_condition_charted_terrain
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_poor_visibility
+						has_battle_condition = battle_condition_mud
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+battle_condition_lost = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_lost.dds"
+
+	modifier = {
+		unit_offense_mult = -0.25
+		unit_morale_loss_mult = 0.25
+	}
+
+	possible = {
+		scope:is_advancing_side = yes
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Env
+			has_battle_condition = battle_condition_good_visibility
+			has_battle_condition = battle_condition_poor_visibility
+			has_battle_condition = battle_condition_charted_terrain
+			has_battle_condition = battle_condition_mud
+		}
+		NOR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_lost_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_poor_visibility
+					has_battle_condition = battle_condition_mud
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_good_visibility
+						has_battle_condition = battle_condition_charted_terrain
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+## MAIN PHASE
+
+battle_condition_aggressive_maneuver = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_aggressive_maneuver.dds"
+
+	modifier = {
+		unit_kill_rate_add = 0.25
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_aggressive_maneuver_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_in_position
+					has_battle_condition = battle_condition_organized_deployment
+					has_battle_condition = battle_condition_dug_in
+					has_battle_condition = battle_condition_entrenched
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_caught_off_guard
+						has_battle_condition = battle_condition_lost
+					}
+				}
+				divide = 2
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_surprise_maneuver
+				}
+			}
+			multiply = 1.5
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_careful_maneuver
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+}
+
+battle_condition_careful_maneuver = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_careful_maneuver.dds"
+
+	modifier = {
+		unit_morale_loss_mult = -0.25
+	}
+	
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_careful_maneuver_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_dug_in
+					has_battle_condition = battle_condition_entrenched
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_caught_off_guard
+						has_battle_condition = battle_condition_lost
+					}
+				}
+				divide = 2
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_surprise_maneuver
+				}
+			}
+			multiply = 1.5
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_aggressive_maneuver
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+}
+
+battle_condition_surprise_maneuver = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_surprise_maneuver.dds"
+
+	modifier = {
+		unit_morale_damage_mult = 0.25
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1
+		multiply = {
+			value = 1
+			scope:character = {
+				add = modifier:character_battle_condition_surprise_maneuver_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_in_position
+					has_battle_condition = battle_condition_organized_deployment
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_caught_off_guard
+						has_battle_condition = battle_condition_lost
+					}
+				}
+				divide = 2
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_careful_maneuver
+				}
+			}
+			multiply = 1.5
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_aggressive_maneuver
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+}
+
+battle_condition_blunder = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_blunder.dds"
+
+	modifier = {
+		unit_morale_loss_mult = 0.25
+		unit_recovery_rate_add = -0.25
+	}
+
+	possible = {
+		exists = scope:character
+		scope:character = { 
+			has_role = general 
+		}
+		OR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_artillery_barrage
+			has_battle_condition = battle_condition_rapid_advance
+		}
+	}
+
+	weight = {
+		value = 0.5
+		multiply = {
+			value = 1
+			scope:character ?= {
+				add = modifier:character_battle_condition_blunder_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_broken_supply_line
+					has_battle_condition = battle_condition_lost
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_logistics_secured
+						has_battle_condition = battle_condition_in_position
+						has_battle_condition = battle_condition_organized_deployment
+					}
+				}
+				divide = 2
+			}
+		}
+	}
+}
+
+battle_condition_artillery_barrage = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_aggressive_maneuver.dds"
+
+	modifier = {
+        unit_offense_mult = 0.25
+		unit_kill_rate_add = 0.25
+	}
+
+	possible = {
+		scope:is_advancing_side = yes
+		exists = scope:character
+		scope:character = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_cannon_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_mobile_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_shrapnel_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_siege_artillery
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_motorized_artillery
+						value >= 0.25
+					}
+				}
+			}
+		}
+		OR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_rapid_advance
+		}
+	}
+	
+	weight = {
+		value = 1		
+		multiply = {
+			value = 1
+			scope:character ?= {
+				add = modifier:character_battle_condition_artillery_barrage_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_logistics_secured
+					has_battle_condition = battle_condition_in_position
+					has_battle_condition = battle_condition_organized_deployment
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_broken_supply_line
+						has_battle_condition = battle_condition_lost
+					}
+				}
+				divide = 2
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_careful_maneuver
+					has_battle_condition = battle_condition_artillery_barrage
+				}
+			}
+			multiply = 1.5
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_aggressive_maneuver
+						has_battle_condition = battle_condition_surprise_maneuver
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+}
+
+battle_condition_rapid_advance = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_rapid_advance.dds"
+
+	modifier = {
+        unit_offense_mult = 0.25
+		unit_morale_damage_mult = 0.25
+	}
+
+	possible = {
+		scope:is_advancing_side = yes
+		exists = scope:character
+		scope:character = {
+			has_role = general
+			OR = {
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_irregular_cavalry
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_regular_cavalry
+						value >= 0.25
+					}
+				}
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_rifle_cavalry
+						value >= 0.25
+					}
+				}
+                # Early tanks are excluded on purpose
+				commander_military_formation = {
+					formation_army_unit_type_fraction = {
+						target = unit_type:combat_unit_type_battle_tank
+						value >= 0.25
+					}
+				}
+			}
+		}
+		OR = {
+			# Deploy
+			has_battle_condition = battle_condition_logistics_secured
+			has_battle_condition = battle_condition_broken_supply_line
+			has_battle_condition = battle_condition_dug_in
+			has_battle_condition = battle_condition_entrenched
+			has_battle_condition = battle_condition_caught_off_guard
+			has_battle_condition = battle_condition_in_position
+			has_battle_condition = battle_condition_organized_deployment
+			has_battle_condition = battle_condition_lost
+			# Main
+			has_battle_condition = battle_condition_aggressive_maneuver
+			has_battle_condition = battle_condition_careful_maneuver
+			has_battle_condition = battle_condition_surprise_maneuver
+			has_battle_condition = battle_condition_blunder
+			has_battle_condition = battle_condition_artillery_barrage
+		}
+	}
+	
+	weight = {
+		value = 1		
+		multiply = {
+			value = 1
+			scope:character ?= {
+				add = modifier:character_battle_condition_rapid_advance_mult
+			}
+			min = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_in_position
+					has_battle_condition = battle_condition_organized_deployment
+				}
+			}
+			multiply = 2
+		} else_if = {
+			if = {
+				limit = {
+					has_battle_condition = battle_condition_lost
+				}
+				divide = 2
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_battle_condition = battle_condition_aggressive_maneuver
+					has_battle_condition = battle_condition_rapid_advance
+				}
+			}
+			multiply = 1.5
+		} else_if = {
+			if = {
+				limit = {
+					OR = {
+						has_battle_condition = battle_condition_careful_maneuver
+						has_battle_condition = battle_condition_surprise_maneuver
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+}
+
+## PURSUIT PHASE
+
+### LOSER
+
+battle_condition_panicked_retreat = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_panicked_retreat.dds"
+
+	modifier = {
+		unit_morale_loss_mult = 4
+		unit_recovery_rate_add = -0.25
+	}
+	
+	instant_switch = {
+		NOR = { 
+			has_battle_condition = battle_condition_pursuit
+			has_battle_condition = battle_condition_controlled_retreat
+			opposite_battle_side = {
+				OR = {
+					has_battle_condition = battle_condition_panicked_retreat
+					has_battle_condition = battle_condition_controlled_retreat
+				}
+			}
+		}
+		current_manpower < {
+			value = starting_manpower
+			if = {
+				limit = {
+					scope:character ?= { experience_level > 5 }
+				}
+				multiply = 0.2
+			}
+			else_if = {
+				limit = {
+					scope:character ?= { experience_level > 4 }
+				}
+				multiply = 0.25
+			}
+			else = {
+				multiply = 0.3
+			}
+		}
+	}
+	
+	weight = 1
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				has_battle_condition = battle_condition_blunder
+			}
+			add = 2
+		}
+	}
+}
+
+battle_condition_controlled_retreat = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_controlled_retreat.dds"
+
+	modifier = {
+		unit_morale_loss_mult = 4
+		unit_recovery_rate_add = 0.25
+	}
+	
+	instant_switch = {
+		NOR = { 
+			has_battle_condition = battle_condition_pursuit
+			has_battle_condition = battle_condition_panicked_retreat
+			opposite_battle_side = {
+				OR = {
+					has_battle_condition = battle_condition_panicked_retreat
+					has_battle_condition = battle_condition_controlled_retreat
+				}
+			}
+		}
+		scope:character ?= { 
+			experience_level > 5
+		}
+		current_manpower < {
+			value = starting_manpower
+			multiply = 0.2
+		}
+	}
+	
+	weight = {
+		add = 1
+		scope:character ?= {
+			add = experience_level
+			divide = 3
+		}
+	}
+}
+
+### WINNER
+
+battle_condition_pursuit = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_pursuit.dds"
+
+	modifier = {
+		unit_morale_loss_mult = -1
+		battle_combat_width_mult = 10
+		unit_kill_rate_add = 0.25
+	}
+	
+	instant_switch = {
+		NOR = { 
+			has_battle_condition = battle_condition_panicked_retreat
+			has_battle_condition = battle_condition_controlled_retreat
+			has_battle_condition = battle_condition_exhausted_pursuit
+		}
+
+		opposite_battle_side = {
+			OR = {
+				has_battle_condition = battle_condition_panicked_retreat
+				has_battle_condition = battle_condition_controlled_retreat
+			}
+		}
+	}
+	
+	weight = 1
+}
+
+battle_condition_exhausted_pursuit = {
+	icon = "gfx/interface/icons/battle_conditions/battle_condition_exhausted.dds"
+
+	modifier = {
+		unit_morale_loss_mult = -1
+		battle_combat_width_mult = 10
+		unit_kill_rate_add = -0.5
+	}
+
+	instant_switch = {
+		NOR = { 
+			has_battle_condition = battle_condition_panicked_retreat
+			has_battle_condition = battle_condition_controlled_retreat
+			has_battle_condition = battle_condition_pursuit
+		}
+
+		opposite_battle_side = {
+			OR = {
+				has_battle_condition = battle_condition_panicked_retreat
+				has_battle_condition = battle_condition_controlled_retreat
+			}
+		}
+	}
+	
+	weight = 1
+}

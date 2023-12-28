@@ -1,0 +1,174 @@
+mobilization_option_basic_drills = {
+	texture = "gfx/interface/icons/production_method_icons/line_infantry.dds"
+	unlocking_technologies = {
+		military_drill
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				OR = {
+					has_mobilization_option = mobilization_option:mobilization_option_regular_drills
+					has_mobilization_option = mobilization_option:mobilization_option_skirmish_drills
+					has_mobilization_option = mobilization_option:mobilization_option_tactical_drills
+				}
+			}
+		}
+	}
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_change_drills_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier_unscaled = {
+		goods_input_small_arms_mult = 0.05
+        goods_input_artillery_mult = 0.05
+        goods_input_tanks_mult = 0.05
+		goods_input_ammunition_mult = 0.05
+        goods_input_oil_mult = 0.05
+        goods_input_radios_mult = 0.05
+	}
+	unit_modifier = {
+		unit_morale_recovery_mult = 0.5
+		unit_morale_loss_mult = -0.1
+	}
+	ai_weight = {
+		value = 10
+	}
+	group = training_method
+}
+
+mobilization_option_regular_drills = {
+	texture = "gfx/interface/icons/production_method_icons/nco_incorporation.dds"
+	unlocking_technologies = {
+		military_statistics
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				OR = {
+					has_mobilization_option = mobilization_option:mobilization_option_basic_drills
+					has_mobilization_option = mobilization_option:mobilization_option_skirmish_drills
+					has_mobilization_option = mobilization_option:mobilization_option_tactical_drills
+				}
+			}
+		}
+	}
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_change_drills_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier_unscaled = {
+		goods_input_small_arms_mult = 0.05
+        goods_input_artillery_mult = 0.05
+        goods_input_tanks_mult = 0.05
+		goods_input_ammunition_mult = 0.05
+        goods_input_oil_mult = 0.05
+        goods_input_radios_mult = 0.05
+	}
+	unit_modifier = {
+		unit_morale_recovery_mult = 1
+		unit_morale_loss_mult = -0.25
+		unit_army_experience_gain_mult = 0.1
+	}
+	ai_weight = {
+		value = 20
+	}
+	group = training_method
+}
+
+mobilization_option_skirmish_drills = {
+	texture = "gfx/interface/icons/production_method_icons/squad_infantry.dds"
+	unlocking_technologies = {
+		electric_telegraph
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				OR = {
+					has_mobilization_option = mobilization_option:mobilization_option_basic_drills
+					has_mobilization_option = mobilization_option:mobilization_option_regular_drills
+					has_mobilization_option = mobilization_option:mobilization_option_tactical_drills
+				}
+			}
+		}
+	}
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_change_drills_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier_unscaled = {
+		goods_input_small_arms_mult = 0.05
+        goods_input_artillery_mult = 0.05
+        goods_input_tanks_mult = 0.05
+		goods_input_ammunition_mult = 0.05
+        goods_input_oil_mult = 0.05
+        goods_input_radios_mult = 0.05
+	}
+	unit_modifier = {
+		unit_morale_recovery_mult = 1.5
+		unit_morale_loss_mult = -0.5
+		unit_army_experience_gain_mult = 0.25
+	}
+	ai_weight = {
+		value = 30
+	}
+	group = training_method
+}
+
+mobilization_option_tactical_drills = {
+	texture = "gfx/interface/icons/production_method_icons/trench_infantry.dds"
+	unlocking_technologies = {
+		war_propaganda
+	}
+	possible = {
+		NOT = {
+			scope:military_formation = {
+				OR = {
+					has_mobilization_option = mobilization_option:mobilization_option_basic_drills
+					has_mobilization_option = mobilization_option:mobilization_option_regular_drills
+					has_mobilization_option = mobilization_option:mobilization_option_skirmish_drills
+				}
+			}
+		}
+	}
+	on_activate_while_mobilized = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_change_drills_tt
+			add_organization = {
+				value = organization
+				multiply = -0.25
+			}
+		}
+	}
+	upkeep_modifier_unscaled = {
+		goods_input_small_arms_mult = 0.05
+        goods_input_artillery_mult = 0.05
+        goods_input_tanks_mult = 0.05
+		goods_input_ammunition_mult = 0.05
+        goods_input_oil_mult = 0.05
+        goods_input_radios_mult = 0.05
+	}
+	unit_modifier = {
+		unit_morale_recovery_mult = 2
+		unit_morale_loss_mult = -0.5
+		unit_army_experience_gain_mult = 0.5
+	}
+	ai_weight = {
+		value = 50
+	}
+	group = training_method
+}
