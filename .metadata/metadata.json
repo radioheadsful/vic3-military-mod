@@ -1,9 +1,9 @@
 {
   "name" : "Radio's Military Tweaks",
-  "id" : "",
-  "version" : "0.1",
+  "id" : "3121094441",
+  "version" : "0.1.1",
   "supported_game_version" : "1.5.12",
-  "short_description" : "3121094441",
+  "short_description" : "A rework of Victoria 3's military system that sticks to the existing game mechanics",
   "tags" : [],
   "relationships" : [],
   "game_custom_data" : {
