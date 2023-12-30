@@ -12,6 +12,7 @@ pm_no_organization = {
 			building_training_rate_add = 2
 		}
 	}
+	ai_value = 0
 }
 
 pm_no_organization_conscription = {
@@ -24,6 +25,7 @@ pm_no_organization_conscription = {
 			building_training_rate_add = 1
 		}
 	}
+	ai_value = 0
 }
 
 # General training
@@ -40,7 +42,7 @@ pm_general_training = {
 			building_training_rate_add = 4
 		}
 	}
-	ai_value = 10
+	ai_value = 100
 }
 
 pm_general_training_conscription = {
@@ -55,7 +57,7 @@ pm_general_training_conscription = {
 			building_training_rate_add = 2
 		}
 	}
-	ai_value = 10
+	ai_value = 100
 }
 
 # Advanced tactics
@@ -72,7 +74,7 @@ pm_advanced_tactics_training = {
 			building_training_rate_add = 8
 		}
 	}
-	ai_value = 20
+	ai_value = 1000
 }
 
 pm_advanced_tactics_training_conscription = {
@@ -90,7 +92,7 @@ pm_advanced_tactics_training_conscription = {
 			building_training_rate_add = 3
 		}
 	}
-	ai_value = 20
+	ai_value = 1000
 }
 
 # Training streamlining
@@ -107,7 +109,7 @@ pm_training_streamlining = {
 			building_training_rate_add = 4
 		}
 	}
-	ai_value = 40
+	ai_value = 5000
 }
 
 pm_training_streamlining_conscription = {
@@ -125,7 +127,7 @@ pm_training_streamlining_conscription = {
 			building_training_rate_add = 4
 		}
 	}
-	ai_value = 40
+	ai_value = 5000
 }
 
 # NCO Training
@@ -142,7 +144,7 @@ pm_nco_incorporation = {
 			building_training_rate_add = 5
 		}
 	}
-	ai_value = 80
+	ai_value = 10000
 }
 
 pm_nco_incorporation_conscription = {
@@ -160,7 +162,7 @@ pm_nco_incorporation_conscription = {
 			building_training_rate_add = 5
 		}
 	}
-	ai_value = 80
+	ai_value = 10000
 }
 
 ###
@@ -175,7 +177,7 @@ pm_no_naval_theory = {
 			building_training_rate_add = 1
 		}
 	}
-	ai_value = 10
+	ai_value = 0
 }
 
 pm_power_of_the_purse = {
@@ -194,7 +196,7 @@ pm_power_of_the_purse = {
 			unit_morale_damage_mult = 0.1
 		}
 	}
-	ai_value = 20
+	ai_value = 100
 }
 
 pm_jeune_ecole = {
@@ -213,7 +215,7 @@ pm_jeune_ecole = {
 			unit_morale_damage_mult = 0.2
 		}
 	}
-	ai_value = 40
+	ai_value = 1000
 }
 
 pm_sea_lane_strategies = {
@@ -232,7 +234,7 @@ pm_sea_lane_strategies = {
 			unit_morale_damage_mult = 0.3
 		}
 	}
-	ai_value = 80
+	ai_value = 5000
 }
 
 pm_battlefleet_tactics = {
@@ -251,5 +253,5 @@ pm_battlefleet_tactics = {
 			unit_morale_damage_mult = 0.4
 		}
 	}
-	ai_value = 160
+	ai_value = 10000
 }

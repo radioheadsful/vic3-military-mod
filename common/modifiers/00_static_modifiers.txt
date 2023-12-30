@@ -19,7 +19,8 @@ base_values = {
 
 	country_secession_progress_add = 0.1
 
-	state_education_access_wealth_add = 0.005
+	# moved remaining 5% to Rationalism
+	# state_education_access_wealth_add = 0.005
 	
 	country_minting_add = 500
 
@@ -45,8 +46,9 @@ base_values = {
 	building_mobilization_cost_mult = 0.1
 	
 	building_economy_of_scale_level_cap_add = 20
-	
-	state_market_access_price_impact = 0.75
+
+	# Down from 0.75 in vanilla
+	state_market_access_price_impact = 0.60
 	
 	country_company_throughput_bonus_add = 0.1
 	country_company_construction_efficiency_bonus_add = 0.25
@@ -56,8 +58,9 @@ base_values = {
 	country_free_trade_routes_add = 5
 	
 	military_formation_organization_gain_add = 0.5 # 200 days to get max organization
-	
-	state_urbanization_per_level_add = 100
+
+	# Up from 100 in vanilla
+	state_urbanization_per_level_add = 150
 	
 	unit_experience_gain_add = 1.0
 }
@@ -153,8 +156,8 @@ declared_bankruptcy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	country_prestige_mult = -0.5
 	country_loan_interest_rate_mult = 0.5
-	unit_offense_mult = -0.5
-	unit_defense_mult = -0.5
+	unit_offense_mult = -0.65 #-0.5
+	unit_defense_mult = -0.65 #-0.5
 	state_radicals_from_sol_change_mult = 1.0
 	state_construction_mult = -0.75
 }
@@ -475,17 +478,17 @@ battle_average_provinces_lost = {
 
 battle_army_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_army_experience_gain_add = 5.0
+	unit_army_experience_gain_add = 1.0 # 5.0
 }
 
 battle_navy_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_navy_experience_gain_add = 5.0
+	unit_navy_experience_gain_add = 1.0 # 5.0
 }
 
 battle_unit_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_experience_gain_add = 5.0
+	unit_experience_gain_add = 1.0 # 5.0
 }
 
 # Scales with how much population is under low pop threshold
@@ -602,13 +605,13 @@ country_navy_power_projection = {
 country_literacy_rate = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
 	country_weekly_innovation_max_add = 150
-	country_tech_spread_add = 75
+	country_tech_spread_add = 150 # 75
 }
 
 # Scales with number of excess innovation points
 excess_innovation = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
-	country_tech_spread_add = 0.2
+	country_tech_spread_add = 0.05 # 0.2
 }
 
 # Scales with admiral convoy raiding strength
