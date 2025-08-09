@@ -1,4 +1,205 @@
 ﻿###
+### ENLISTMENT
+###
+
+### Barracks
+pm_enlistment_tier1 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	is_default = yes
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_tier2 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	unlocking_technologies = {
+		mandatory_service
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_tier3 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	unlocking_technologies = {
+		logistics
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_tier4 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	unlocking_technologies = {
+		military_statistics
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_tier5 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	unlocking_technologies = {
+		enlistment_offices
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_tier6 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	unlocking_technologies = {
+		war_propaganda
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+### Conscription Centers
+pm_enlistment_conscription_tier0 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	is_default = yes
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_conscription_tier1 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_enlistment_conscription_tier2 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+### Naval Bases
+pm_naval_enlistment_tier0 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+	is_default = yes
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_naval_enlistment_tier1 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+pm_naval_enlistment_tier2 = {
+	texture = "gfx/interface/icons/production_method_icons/battlefleet_tactics.dds"
+
+	building_modifiers = {
+		level_scaled = {
+			building_training_rate_add = 2
+			goods_input_paper_add = 5
+			goods_input_clothes_add = 5
+			# TODO: check if this is OK, we don't want clerks to go die on the front
+			# Or do we? IDK.
+			building_employment_clerks_add = 10
+		}
+	}
+}
+
+###
+### Training
+###
+
+###
 ### LAND
 ###
 # No organization
@@ -29,11 +230,11 @@ pm_no_organization_conscription = {
 }
 
 # General training
-# mandatory_service
+# military_drill
 pm_general_training = {
 	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
 	unlocking_technologies = {
-		mandatory_service
+		military_drill
 	}
 	building_modifiers = {
 		level_scaled = {
@@ -48,7 +249,7 @@ pm_general_training = {
 pm_general_training_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
 	unlocking_technologies = {
-		mandatory_service
+		military_drill
 	}
 	building_modifiers = {
 		level_scaled = {
