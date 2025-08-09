@@ -22,7 +22,7 @@ pm_no_organization_conscription = {
 		level_scaled = {
 			building_employment_soldiers_add = 970
 			building_employment_officers_add = 30
-			building_training_rate_add = 1
+			building_training_rate_add = 20
 		}
 	}
 	ai_value = 0
@@ -31,9 +31,9 @@ pm_no_organization_conscription = {
 # General training
 # mandatory_service
 pm_general_training = {
-	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
+	texture = "gfx/interface/icons/production_method_icons/line_infantry.dds"
 	unlocking_technologies = {
-		mandatory_service
+		military_drill
 	}
 	building_modifiers = {
 		level_scaled = {
@@ -46,7 +46,7 @@ pm_general_training = {
 }
 
 pm_general_training_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
+	texture = "gfx/interface/icons/production_method_icons/line_infantry.dds"
 	unlocking_technologies = {
 		mandatory_service
 	}
@@ -54,7 +54,7 @@ pm_general_training_conscription = {
 		level_scaled = {
 			building_employment_soldiers_add = 950
 			building_employment_officers_add = 50
-			building_training_rate_add = 2
+			building_training_rate_add = 40
 		}
 	}
 	ai_value = 100
@@ -80,7 +80,7 @@ pm_advanced_tactics_training = {
 pm_advanced_tactics_training_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/line_infantry.dds"
 	unlocking_technologies = {
-		general_staff
+		military_statistics
 	}
 	disallowing_laws = {
 		law_peasant_levies
@@ -89,7 +89,7 @@ pm_advanced_tactics_training_conscription = {
 		level_scaled = {
 			building_employment_soldiers_add = 900
 			building_employment_officers_add = 100
-			building_training_rate_add = 3
+			building_training_rate_add = 200
 		}
 	}
 	ai_value = 1000
@@ -106,7 +106,7 @@ pm_training_streamlining = {
 		level_scaled = {
 			building_employment_soldiers_add = 850
 			building_employment_officers_add = 150
-			building_training_rate_add = 4
+			building_training_rate_add = 12
 		}
 	}
 	ai_value = 5000
@@ -115,7 +115,7 @@ pm_training_streamlining = {
 pm_training_streamlining_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/skirmish_infantry.dds"
 	unlocking_technologies = {
-		wargaming
+		enlistment_offices
 	}
 	disallowing_laws = {
 		law_peasant_levies
@@ -124,7 +124,7 @@ pm_training_streamlining_conscription = {
 		level_scaled = {
 			building_employment_soldiers_add = 850
 			building_employment_officers_add = 150
-			building_training_rate_add = 4
+			building_training_rate_add = 120
 		}
 	}
 	ai_value = 5000
@@ -150,7 +150,7 @@ pm_nco_incorporation = {
 pm_nco_incorporation_conscription = {
 	texture = "gfx/interface/icons/production_method_icons/trench_infantry.dds"
 	unlocking_technologies = {
-		nco_training
+		war_propaganda
 	}
 	disallowing_laws = {
 		law_peasant_levies

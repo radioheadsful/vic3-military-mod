@@ -100,6 +100,7 @@ law_professional_army = {
 		# Recruitment & Conscription
 		state_building_barracks_max_level_add = 20
 		state_building_conscription_center_max_level_add = 20
+		unit_mobilization_speed_mult = 100
 
 		# IGs
 		country_officers_pol_str_mult = 0.25

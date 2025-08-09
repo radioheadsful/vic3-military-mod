@@ -1,0 +1,71 @@
+﻿# TODO: arty
+
+je_rifling = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		has_technology_researched = artillery
+	}
+	possible = {
+		has_technology_researched = rifling
+		army_size >= 20
+	}
+	complete = {
+		any_scope_building = {
+			is_building_type = building_arms_industry
+			OR = {
+				has_active_production_method = pm_rifles
+				has_active_production_method = pm_repeaters
+				has_active_production_method = pm_bolt_action_rifles
+			}
+			level >= 3
+			occupancy >= 0.75
+		}
+		can_research = percussion_cap
+	}
+	on_complete = {
+		trigger_event = {
+			id = military_tech_events.401
+		}
+	}
+	fail = {
+		has_technology_researched = percussion_cap
+	}
+	timeout = 3650
+}
+
+je_munitions_factories = {
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = rifling
+	}
+	possible = {
+		has_technology_researched = percussion_cap
+		any_scope_building = {
+			is_building_type = building_munition_plants
+		}
+	}
+	complete = {
+		any_scope_building = {
+			is_building_type = building_munition_plants
+			cash_reserves_ratio > 0.25
+			weekly_profit > 0
+			occupancy >= 0.5
+			level >= 2
+		}
+		can_research = shell_gun
+	}
+	on_complete = {
+		trigger_event = {
+			id = war_crimes.2
+		}
+	}
+	fail = {
+		has_technology_researched = shell_gun
+	}
+	timeout = 3650
+}
+
+# TODO: repeaters

@@ -4,6 +4,9 @@ standing_army = {
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
 	category = military
+	modifier = {
+		state_FAE_building_forts_max_level_add = 1
+	}
 	ai_weight = {
 		value = 3		# Very important tech in general
 	}
@@ -115,6 +118,7 @@ napoleonic_warfare = {
 	}
 	modifier = {
 		military_formation_organization_gain_mult = 0.25
+		state_FAE_building_forts_max_level_add = 1
 	}
 	ai_weight = {
 		value = 1.5		# Important tech in general
@@ -221,6 +225,7 @@ field_works = {
 	}
 	unlocking_technologies = {
 		napoleonic_warfare
+		state_FAE_building_forts_max_level_add = 1
 	}
 	ai_weight = {
 		value = 1
@@ -291,8 +296,7 @@ general_staff = {
 	category = military
 	modifier = {
 		military_formation_organization_gain_mult = 0.25
-		unit_army_offense_mult = 0.15
-		unit_army_defense_mult = 0.15
+		unit_army_offense_mult = 0.25
 	}
 	unlocking_technologies = {
 		army_reserves
@@ -404,8 +408,7 @@ wargaming = {
 	category = military
 	modifier = {
 		military_formation_organization_gain_mult = 0.5
-		unit_army_offense_mult = 0.2
-		unit_army_defense_mult = 0.2
+		unit_army_offense_mult = 0.35
 	}
 	unlocking_technologies = {
 		military_statistics
@@ -422,8 +425,8 @@ electric_telegraph = {
 	modifier = {
 		country_war_exhaustion_casualties_mult = -0.25
 		military_formation_organization_gain_mult = 0.5
-		unit_army_offense_mult = 0.15
-		unit_army_defense_mult = 0.15
+		military_formation_movement_speed_mult = 0.25
+		unit_army_offense_mult = 0.4
 	}
 	unlocking_technologies = {
 		wargaming
@@ -473,6 +476,9 @@ breech_loading_artillery = {
 	unlocking_technologies = {
 		shell_gun
 	}
+	modifier = {
+		state_FAE_building_forts_max_level_add = 2
+	}
 	ai_weight = {
 		value = 1.5		# Important tech in general
 	}
@@ -499,8 +505,9 @@ defense_in_depth = {
 	category = military
 	modifier = {
 		# defensive bonus, either to the army or ideally to fortifications
-		unit_army_defense_mult = 0.25
+		unit_army_defense_mult = 0.35
 		unit_army_recovery_rate_add = 0.15
+		state_FAE_building_forts_max_level_add = 2
 	}
 	unlocking_technologies = {
 		field_works
@@ -647,7 +654,6 @@ gantry_cranes = {
 }
 
 ### ERA 4
-
 trench_works = {
 	# Unlocks Officer Training PM in Barracks
 	# Unlocks Barbed Wire Fences in Livestock Ranches
@@ -655,6 +661,9 @@ trench_works = {
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/defense_in_depth.dds"
 	category = military
+	modifier = {
+		unit_army_defense_mult = 0.4
+	}
 	unlocking_technologies = {
 		defense_in_depth
 	}
@@ -736,6 +745,7 @@ concrete_fortifications = {
 		# bonus to general defensiveness or specifically to forts if they become a thing
 		unit_army_defense_mult = 0.5
 		unit_army_recovery_rate_add = 0.25
+		state_FAE_building_forts_max_level_add = 3
 	}
 	unlocking_technologies = {
 		trench_works
@@ -931,10 +941,7 @@ stormtroopers = {
 	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
 	category = military
 	modifier = {
-		unit_combat_unit_type_trench_infantry_offense_mult = 0.25
-		unit_combat_unit_type_trench_infantry_kill_rate_add = 0.25
-		unit_combat_unit_type_mechanized_infantry_offense_mult = 0.25
-		unit_combat_unit_type_mechanized_infantry_kill_rate_add = 0.25
+		unit_army_offense_mult = 0.25
 	}
 	unlocking_technologies = {
 		war_propaganda

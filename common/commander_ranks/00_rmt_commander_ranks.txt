@@ -4,10 +4,6 @@ commander_rank_1 = {
 	rank_value = 1
 	texture = "gfx/interface/icons/commander_rank_icons/commander_rank_1.dds"
 
-	character_modifier = {
-		military_formation_organization_gain_mult = 0.01
-	}
-
 	general_modifier = {
 		character_command_limit_add = 5
 	}
@@ -46,18 +42,15 @@ commander_rank_1 = {
 commander_rank_2 = {
 	rank_value = 2
     texture = "gfx/interface/icons/commander_rank_icons/commander_rank_2.dds"
-	
-	character_modifier = {
-		unit_experience_gain_mult = 0.01
-		military_formation_organization_gain_mult = 0.02
-	}
 
 	general_modifier = {
 		character_command_limit_add = 15
+		unit_army_experience_gain_mult = 0.01
 	}
 
 	admiral_modifier = {
 		character_command_limit_add = 10
+		unit_navy_experience_gain_mult = 0.01
 	}
 
 	country_modifier = {
@@ -90,18 +83,15 @@ commander_rank_2 = {
 commander_rank_3 = {
 	rank_value = 3
     texture = "gfx/interface/icons/commander_rank_icons/commander_rank_3.dds"
-	
-	character_modifier = {
-		unit_experience_gain_mult = 0.02
-		military_formation_organization_gain_mult = 0.04
-	}
 
 	general_modifier = {
 		character_command_limit_add = 30
+		unit_army_experience_gain_mult = 0.02
 	}
 
 	admiral_modifier = {
 		character_command_limit_add = 15
+		unit_navy_experience_gain_mult = 0.02
 	}
 
 	country_modifier = {
@@ -134,18 +124,15 @@ commander_rank_3 = {
 commander_rank_4 = {
 	rank_value = 4
     texture = "gfx/interface/icons/commander_rank_icons/commander_rank_4.dds"
-	
-	character_modifier = {
-		unit_experience_gain_mult = 0.05
-		military_formation_organization_gain_mult = 0.05
-	}
 
 	general_modifier = {
 		character_command_limit_add = 50
+		unit_army_experience_gain_mult = 0.05
 	}
 
 	admiral_modifier = {
 		character_command_limit_add = 30
+		unit_navy_experience_gain_mult = 0.05
 	}
 
 	country_modifier = {
@@ -178,10 +165,6 @@ commander_rank_4 = {
 commander_rank_ruler = {
 	rank_value = 6
     texture = "gfx/interface/icons/character_role_icons/ruler.dds"
-	
-	character_modifier = {
-		military_formation_organization_gain_mult = 0.05
-	}
 
 	general_modifier = {
 		character_command_limit_add = 50

@@ -34,7 +34,7 @@ mobilization_option_tobacco = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.5
+					multiply = -0.25
 				}
 			}
 		}
@@ -66,7 +66,7 @@ mobilization_option_liquor = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.5
+					multiply = -0.25
 				}
 			}
 		}
@@ -98,7 +98,7 @@ mobilization_option_opium = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.5
+					multiply = -0.25
 				}
 			}
 		}
@@ -113,55 +113,6 @@ mobilization_option_opium = {
 		value = 5
 	}
 	group = supplements
-}
-
-mobilization_option_handcranked_mgs = {
-	texture = "gfx/interface/icons/production_method_icons/unused/handcranked_machine_guns.dds"
-	possible = {
-		market ?= {
-			mg:ammunition ?= {
-				market_goods_sell_orders > 0
-			}
-		}
-		NOT = {
-			scope:military_formation = {
-				has_mobilization_option = mobilization_option:mobilization_option_machinegunners
-			}
-		}
-	}
-	on_activate_while_mobilized = {
-		custom_tooltip = {
-			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
-			add_organization = {
-				value = organization
-				multiply = -0.5
-			}
-		}
-	}
-	on_deactivate = {
-		custom_tooltip = {
-			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
-			add_organization = {
-				value = organization
-				multiply = -0.5
-			}
-		}
-	}
-	unlocking_technologies = {
-		handcranked_machine_gun
-	}
-	upkeep_modifier = {
-		goods_input_small_arms_add = 0.5
-		goods_input_ammunition_add = 0.5
-	}
-	unit_modifier = {
-		unit_army_defense_mult = 0.1
-		unit_kill_rate_add = 0.1
-	}
-	ai_weight = {
-		value = 5
-	}
-	group = special_weapons
 }
 
 mobilization_option_machinegunners = {
@@ -183,7 +134,7 @@ mobilization_option_machinegunners = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.5
+				multiply = -0.25
 			}
 		}
 	}
@@ -192,7 +143,7 @@ mobilization_option_machinegunners = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.5
+				multiply = -0.25
 			}
 		}
 	}
@@ -227,7 +178,7 @@ mobilization_option_chemical_weapons = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.5
+				multiply = -0.25
 			}
 		}
 	}
@@ -236,7 +187,7 @@ mobilization_option_chemical_weapons = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.5
+				multiply = -0.25
 			}
 		}
 	}
@@ -285,7 +236,7 @@ mobilization_option_flamethrowers = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.5
+				multiply = -0.25
 			}
 		}
 	}
@@ -294,7 +245,7 @@ mobilization_option_flamethrowers = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
 			add_organization = {
 				value = organization
-				multiply = -0.5
+				multiply = -0.25
 			}
 		}
 	}

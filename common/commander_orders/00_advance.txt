@@ -12,6 +12,13 @@ advance = {
 			severity = invalid
 			has_role = general
 		}
+		NOR = {
+			has_trait = ambitious
+			has_trait = arrogant
+			has_trait = cruel
+			has_trait = reckless
+			has_trait = wrathful
+		}
 	}
 	modifier = {
 		character_advancement_speed_add = 5
@@ -37,12 +44,7 @@ advance_reckless = {
 		OR = {
 			has_trait = ambitious
 			has_trait = arrogant
-			has_trait = brave
 			has_trait = cruel
-			has_trait = direct
-			has_trait = imperious
-			has_trait = imposing
-			has_trait = persistent
 			has_trait = reckless
 			has_trait = wrathful
 		}
@@ -77,6 +79,9 @@ advance_planned = {
 			severity = invalid
 			owner = {
 				has_technology_researched = general_staff
+				NOT = {
+					has_technology_researched = wargaming
+				}
 			}
 		}
 		NOR = {
@@ -149,18 +154,10 @@ advance_rapid = {
 			severity = invalid
 			has_role = general
 		}
-		OR = {
-			# Smart
-			has_trait = innovative
-			has_trait = meticulous
-			# Generic
-			has_trait = basic_offensive_planner
-			has_trait = experienced_offensive_planner
-			has_trait = expert_offensive_planner
-			# Specific
-			has_trait = basic_cavalry_commander
-			has_trait = experienced_cavalry_commander
-			has_trait = expert_cavalry_commander
+		NOR = {
+			has_trait = arrogant
+			has_trait = bigoted
+			has_trait = reckless
 		}
 		AND = {
 			has_role = general
@@ -220,18 +217,10 @@ advance_heavy = {
 			severity = invalid
 			has_role = general
 		}
-		OR = {
-			# Smart
-			has_trait = innovative
-			has_trait = meticulous
-			# Generic
-			has_trait = basic_offensive_planner
-			has_trait = experienced_offensive_planner
-			has_trait = expert_offensive_planner
-			# Specific
-			has_trait = basic_artillery_commander
-			has_trait = experienced_artillery_commander
-			has_trait = expert_artillery_commander
+		NOR = {
+			has_trait = arrogant
+			has_trait = bigoted
+			has_trait = reckless
 		}
 		AND = {
 			has_role = general

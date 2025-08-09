@@ -1,0 +1,40 @@
+﻿# TODO: 1x early tech, skirmish, rifle cav, wargaming
+
+je_trench_warfare = {
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = defense_in_depth
+	}
+	possible = {
+		has_technology_researched = trench_works
+	}
+	complete = {
+		country_army_unit_type_fraction = {
+			target = unit_type:combat_unit_type_trench_infantry
+			value >= 0.25
+		}
+		any_scope_war = {
+			any_scope_front = {
+				any_scope_general = {
+					owner = ROOT
+					this.commander_military_formation = {
+						formation_army_unit_type_fraction = {
+							target = unit_type:combat_unit_type_trench_infantry
+							value >= 0.25
+						}
+					}
+				}
+			}
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = trench_warfare.1
+		}
+	}
+	timeout = 3650
+}
+
+# TODO: siege arty, tanks, stormtroopers, mechanized
