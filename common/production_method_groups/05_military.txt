@@ -1,4 +1,15 @@
-﻿pmg_training = {
+﻿pmg_enlistment = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_enlistment_tier0
+		pm_enlistment_tier1
+		pm_enlistment_tier2
+	}
+}
+
+pmg_training = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
 	ai_selection = most_productive
 
@@ -8,6 +19,18 @@
 		pm_advanced_tactics_training
 		pm_training_streamlining
 		pm_nco_incorporation
+		pm_mobile_warfare_tactics
+	}
+}
+
+pmg_enlistment_conscription = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_enlistment_conscription_tier0
+		pm_enlistment_conscription_tier1
+		pm_enlistment_conscription_tier2
 	}
 }
 
@@ -21,6 +44,18 @@ pmg_training_conscription = {
 		pm_advanced_tactics_training_conscription
 		pm_training_streamlining_conscription
 		pm_nco_incorporation_conscription
+		pm_mobile_warfare_tactics_conscription
+	}
+}
+
+pmg_naval_enlistment = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_naval_enlistment_tier0
+		pm_naval_enlistment_tier1
+		pm_naval_enlistment_tier2
 	}
 }
 

@@ -1,9 +1,13 @@
 ﻿### ERA 1
 standing_army = {
 	# Unlocks Barracks building
+	# Unlocks pm_enlistment_tier
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
 	category = military
+	modifier = {
+		country_institution_military_office_max_investment_add = 1
+	}
 	ai_weight = {
 		value = 3		# Very important tech in general
 	}
@@ -49,6 +53,7 @@ drydocks = {
 
 mandatory_service = {
 	# Unlocks Army Model - National Militia
+	# Unlocks pm_enlistment_tier
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/mandatory_service.dds"
 	category = military
@@ -92,7 +97,7 @@ artillery = {
 }
 
 military_drill = {
-	# Does nothing yet; should enable/increase combat unit Experience gain
+	# Unlocks pm_general_training
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
 	category = military
@@ -115,6 +120,7 @@ napoleonic_warfare = {
 	}
 	modifier = {
 		military_formation_organization_gain_mult = 0.25
+		country_institution_military_office_max_investment_add = 1
 	}
 	ai_weight = {
 		value = 1.5		# Important tech in general
@@ -229,6 +235,7 @@ field_works = {
 
 logistics = {
 	# increases number of conscriptable battalions
+	# pm_enlistment_tier
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/logistics_tech.dds"
 	category = military
@@ -290,6 +297,7 @@ general_staff = {
 	texture = "gfx/interface/icons/invention_icons/general_staff.dds"
 	category = military
 	modifier = {
+		country_institution_military_office_max_investment_add = 1
 		military_formation_organization_gain_mult = 0.25
 		unit_army_offense_mult = 0.15
 		unit_army_defense_mult = 0.15
@@ -302,6 +310,7 @@ general_staff = {
 	}
 }
 
+# pm_enlistment_tier
 military_statistics = {
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
@@ -403,6 +412,7 @@ wargaming = {
 	texture = "gfx/interface/icons/invention_icons/wargaming.dds"
 	category = military
 	modifier = {
+		country_institution_military_office_max_investment_add = 1
 		military_formation_organization_gain_mult = 0.5
 		unit_army_offense_mult = 0.2
 		unit_army_defense_mult = 0.2
@@ -433,6 +443,7 @@ electric_telegraph = {
 	}
 }
 
+# pm_enlistment_tier
 enlistment_offices = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
@@ -746,6 +757,7 @@ concrete_fortifications = {
 	}
 }
 
+# pm_enlistment_tier
 war_propaganda = {
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/war_propaganda.dds"
@@ -754,6 +766,7 @@ war_propaganda = {
 		state_conscription_rate_mult = 0.5
 		building_training_rate_mult = 0.5
 		country_war_exhaustion_casualties_mult = -0.5
+		country_institution_military_office_max_investment_add = 1
 	}
 	unlocking_technologies = {
 		trench_works
