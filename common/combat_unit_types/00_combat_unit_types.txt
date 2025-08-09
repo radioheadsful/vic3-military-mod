@@ -17,9 +17,9 @@ combat_unit_type_irregular_infantry = {
 	}
 	# scope = country
 	# both this and "can_build" needs to be true to build conscripts
-    can_build = {
-        always = yes
-    }
+	can_build = {
+		always = yes
+	}
 	can_build_conscript = {
 		always = yes
 	}
@@ -307,6 +307,8 @@ combat_unit_type_cannon_artillery = {
 		unit_kill_rate_add = 0.25
 		unit_occupation_mult = -0.5
 		unit_devastation_mult = 0.1
+		# Siege
+		unit_FAE_siege_add = 2
 	}
 	unlocking_technologies = {
 		artillery
@@ -359,6 +361,8 @@ combat_unit_type_mobile_artillery = {
 		unit_kill_rate_add = 0.25
 		unit_occupation_mult = -0.25
 		unit_devastation_mult = 0.1
+		# Siege
+		unit_FAE_siege_add = 4
 	}
 	unlocking_technologies = {
 		shell_gun
@@ -421,6 +425,8 @@ combat_unit_type_shrapnel_artillery = {
 		unit_kill_rate_add = 0.5
 		unit_occupation_mult = -0.25
 		unit_devastation_mult = 0.25
+		# Siege
+		unit_FAE_siege_add = 6
 	}
 	unlocking_technologies = {
 		breech_loading_artillery
@@ -483,6 +489,8 @@ combat_unit_type_siege_artillery = {
 		unit_kill_rate_add = 0.75
 		unit_occupation_mult = -0.5
 		unit_devastation_mult = 0.5
+		# Siege
+		unit_FAE_siege_add = 8
 	}
 	# formation_modifier = {
 	#     military_formation_mobilization_speed_mult = -0.2
@@ -550,6 +558,8 @@ combat_unit_type_motorized_artillery = {
 		unit_kill_rate_add = 0.75
 		unit_occupation_mult = -0.25
 		unit_devastation_mult = 0.5
+		# Siege
+		unit_FAE_siege_add = 10
 	}
 	unlocking_technologies = {
 		motorized_logistics
@@ -788,6 +798,8 @@ combat_unit_type_tank = {
 		unit_morale_damage_mult = 0.5
 		unit_occupation_mult = 0.25
 		unit_recovery_rate_add = -0.25
+		# Siege
+		unit_FAE_siege_add = 8
 	}
 	# formation_modifier = {
 	#     military_formation_mobilization_speed_mult = -0.2
@@ -831,6 +843,8 @@ combat_unit_type_battle_tank = {
 		unit_morale_damage_mult = 0.5
 		unit_occupation_mult = 0.5
 		unit_recovery_rate_add = -0.1
+		# Siege
+		unit_FAE_siege_add = 10
 	}
 	unlocking_technologies = {
 		tank_doctrine

@@ -3,14 +3,14 @@
 @min_occupation_score = 100
 @max_occupation_score = 1000
 # Weights
-@state_province_weight_points = 10
+@state_province_weight_points = 100
 @state_population_weight_points = 0.001
-@state_urbanization_weight_points = 100
+@state_urbanization_weight_points = 50
 @state_infra_weight_points = 20
 # Main factors
 @state_num_provinces_factor = 1
 @state_population_density_factor = 1
-@state_urbanization_factor = 5
+@state_urbanization_factor = 1
 # Province types penalty weights
 @hazardous_terrain_factor = 2
 @elevated_terrain_factor = 1.5
@@ -73,23 +73,15 @@ urbanization_total = {
 	}
 }
 
-regular_provinces = {
-	add = provinces_total
-	subtract = provinces_with_hazardous_terrain
-	subtract = provinces_with_forested_terrain
-	subtract = provinces_with_elevated_terrain
-}
-
 # root = state
 # is_advancing_side = true if the state is being occupied
 occupation_cost = {
 	# Start with the size of the state
 	add = {
-		add = regular_provinces
+		add = provinces_total
 		multiply = @[state_province_weight_points]
 		multiply = @[state_num_provinces_factor]
-		max = 200
-		min = 100
+		max = 100
 		desc = "OCCUPATION_COST_FROM_NUM_PROVINCES"
 	}
 	# Add the population density
@@ -98,17 +90,16 @@ occupation_cost = {
 		divide = provinces_total
 		multiply = @[state_population_weight_points]
 		multiply = @[state_population_density_factor]
-		max = 300
+		max = 200
 		min = 100
 		desc = "OCCUPATION_COST_FROM_POPULATION"
 	}
 	# Urbanisation ratio
 	add = {
 		add = urbanization_total
-		divide = provinces_total
 		multiply = @[state_urbanization_weight_points]
 		multiply = @[state_urbanization_factor]
-		max = 400
+		max = 300
 		min = 100
 		desc = "OCCUPATION_COST_FROM_URBANIZATION"
 	}
@@ -120,6 +111,7 @@ occupation_cost = {
 		}
 		add = {
 			add = provinces_with_hazardous_terrain
+			divide = provinces_total
 			multiply = @[state_province_weight_points]
 			multiply = @[hazardous_terrain_factor]
 			desc = "OCCUPATION_COST_FROM_NUM_HAZARDOUS_PROVINCES"
@@ -131,6 +123,7 @@ occupation_cost = {
 		}
 		add = {
 			add = provinces_with_forested_terrain
+			divide = provinces_total
 			multiply = @[state_province_weight_points]
 			multiply = @[forested_terrain_factor]
 			desc = "OCCUPATION_COST_FROM_NUM_FORESTED_PROVINCES"
@@ -142,6 +135,7 @@ occupation_cost = {
 		}
 		add = {
 			add = provinces_with_elevated_terrain
+			divide = provinces_total
 			multiply = @[state_province_weight_points]
 			multiply = @[elevated_terrain_factor]
 			desc = "OCCUPATION_COST_FROM_NUM_ELEVATED_PROVINCES"
@@ -183,10 +177,27 @@ occupation_cost = {
 			limit = {
 				scope:is_advancing_side = yes
 			}
-			multiply = {
-				value = concentration_of_defensive_mobilized_battalions
-				min = @[defensive_battalions_factor_min]
-				max = @[defensive_battalions_factor_max]
+			if = {
+				limit = {
+					concentration_of_defensive_mobilized_battalions > 1
+				}
+				multiply = {
+					value = concentration_of_defensive_mobilized_battalions
+					min = @[defensive_battalions_factor_min]
+					max = @[defensive_battalions_factor_max]
+				}
+			}
+			else = {
+				divide = {
+					divide = {
+						add = 1
+						add = {
+							value = concentration_of_defensive_mobilized_battalions
+							min = @[defensive_battalions_factor_min]
+							max = @[defensive_battalions_factor_max]
+						}
+					}
+				}
 			}
 			desc = "OCCUPATION_COST_FROM_CONCENTRATION_OF_BATTALIONS"
 		}

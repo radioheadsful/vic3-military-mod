@@ -25,12 +25,17 @@ mobilization_option_field_surgery = {
 	unlocking_technologies = {
 		triage
 	}
-	possible = {
-		NOT = {
-			scope:military_formation = {
-				has_mobilization_option = mobilization_option:mobilization_option_field_hospitals
+	can_be_turned_off = {
+		custom_tooltip = {
+			text = mobilization_option_basic_supplies_can_be_turned_off_tt
+			NOT = {
+				scope:military_formation = {
+					has_mobilization_option = mobilization_option:mobilization_option_field_hospitals
+				}
 			}
 		}
+	}
+	possible = {
 		market ?= {
 			mg:fabric ?= {
 				market_goods_sell_orders > 0
@@ -46,7 +51,7 @@ mobilization_option_field_surgery = {
 			text = mobilization_option_it_hurts_organization_to_add_medic_support_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.15
 			}
 		}
 	}
@@ -56,12 +61,12 @@ mobilization_option_field_surgery = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.5
+					multiply = -0.25
 				}
 			}
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.15
 			}
 		}
 	}
@@ -83,11 +88,19 @@ mobilization_option_field_hospitals = {
 	unlocking_technologies = {
 		modern_nursing
 	}
-	possible = {
-		NOT = {
-			scope:military_formation = {
-				has_mobilization_option = mobilization_option:mobilization_option_first_aid
+	can_be_turned_off = {
+		custom_tooltip = {
+			text = mobilization_option_basic_supplies_can_be_turned_off_tt
+			NOT = {
+				scope:military_formation = {
+					has_mobilization_option = mobilization_option:mobilization_option_combat_medics
+				}
 			}
+		}
+	}
+	possible = {
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_field_surgery
 		}
 		market ?= {
 			mg:fabric ?= {
@@ -106,7 +119,7 @@ mobilization_option_field_hospitals = {
 			text = mobilization_option_it_hurts_organization_to_add_medic_support_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.15
 			}
 		}
 	}
@@ -116,12 +129,12 @@ mobilization_option_field_hospitals = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.5
+					multiply = -0.25
 				}
 			}
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.15
 			}
 		}
 	}
@@ -145,10 +158,8 @@ mobilization_option_combat_medics = {
 		combat_medics
 	}
 	possible = {
-		NOT = {
-			scope:military_formation = {
-				has_mobilization_option = mobilization_option:mobilization_option_first_aid
-			}
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_field_hospitals
 		}
 		market ?= {
 			mg:fabric ?= {
@@ -170,7 +181,7 @@ mobilization_option_combat_medics = {
 			text = mobilization_option_it_hurts_organization_to_add_medic_support_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.15
 			}
 		}
 	}
@@ -180,12 +191,12 @@ mobilization_option_combat_medics = {
 			every_combat_unit = {
 				add_morale = {
 					value = morale
-					multiply = -0.5
+					multiply = -0.25
 				}
 			}
 			add_organization = {
 				value = organization
-				multiply = -0.25
+				multiply = -0.15
 			}
 		}
 	}

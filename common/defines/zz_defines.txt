@@ -37,19 +37,16 @@ NMilitary = {
 
 	BATTLE_PLAN_ADVANCE_PROGRESS_TO_LAUNCH = 100 			# required accumulated advance progress to launch
 	
-	CONVOY_RAIDING_NUM_POSSIBLE_ATTACK_NODES = 5			# How many sea zones will be shown as possible attack sites for convoy raided player
-	CONVOY_RAIDING_DELAY_BASE_DAYS = 5						# atleast this many days between each admiral raiding attempt
-	CONVOY_RAIDING_DELAY_MAX_RANDOM_DAYS_FACTOR = 5			# up to this many extra days between each admiral raiding attempt
-
 	CONVOY_RAIDING_STRENGTH_MULT = 0.3					# How strong each Convoy raiding point is ( num flotillas * ce offense )
-	CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR = 0.5			# Actual convoy raiding damage is scaled between CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR and CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR to provide some random variability
-	CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR = 1.0			# Actual convoy raiding damage is scaled between CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR and CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR to provide some random variability
-	CONVOY_RAIDING_DEFENSE_MULT = 0.15						# How much is Convoy raiding strength reduced by patrolling flotillas  ( num flotillas * ce defense )
+	CONVOY_RAIDING_COOLDOWN_DAYS_MIN = 10					# Min days until the next convoy raiding in the sea node
+	CONVOY_RAIDING_COOLDOWN_DAYS_MAX = 30					# Max days until the next convoy raiding in the sea node
+	CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR = 0.1			# Actual convoy raiding damage is scaled between CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR and CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR to provide some random variability
+	CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR = 0.5			# Actual convoy raiding damage is scaled between CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR and CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR to provide some random variability
+	CONVOY_RAIDING_DEFENSE_MULT = 0.3 #0.15						# How much is Convoy raiding strength reduced by patrolling flotillas  ( num flotillas * ce defense )
 	CONVOY_RAIDING_MAX_DEFENSE = 0.90						# Example: the defender can never block more than 90% of the convoy damage they're currently taking
-		
-	# Convoy recovery rate after being raided is based on a global and a local rate, using whichever is lower
-	CONVOY_RAIDING_GLOBAL_RECOVERY_RATE = 0.001				# The rate at which damaged convoys are replaced each day, relative to total number of produced convoys in the raided country
-	CONVOY_RAIDING_LOCAL_RECOVERY_RATE = 0.01				# The rate at which damaged convoys are replaced each day, relative to total number of convoys passing through the sea node
+	CONVOY_RAIDING_GLOBAL_RECOVERY_RATE = 0.0015 #0.001				# The rate at which damaged convoys are replaced each day, relative to total number of produced convoys in the raided country
+	CONVOY_RAIDING_LOCAL_RECOVERY_RATE = 0.015 #0.01				# The rate at which damaged convoys are replaced each day, relative to total number of convoys passing through the sea node
+	CONVOY_RAIDING_RECOVERY_RATE_PEACETIME_FACTOR = 4		# While a country is at peace, convoys will be restored this much faster
 	
 	MIN_OFFENSE_DEFENSE = 1									# The absolute lowest Offense or Defense a unit can have
 
@@ -62,8 +59,8 @@ NMilitary = {
 	DEMOBILIZATION_TIME_DAYS = 90				# Number of days it takes to fully demobilize after a formation has returned home
 
 	MOBILIZATION_INFRASTRUCTURE_FACTOR = 0.01	# amount of mobilization generated per point of infrastructure. one battalion takes one full point of mobilization to mobilize
-	MIN_MOBILIZATION_PER_DAY = 0.01				# minimum mobilization gained per day by each mobilizing battalion (the last unit to gain mobilization in a state might have to do with whatever is left)
-	MAX_MOBILIZATION_PER_DAY = 1				# maximum mobilization gained per day by each mobilizing battalion
+	MIN_MOBILIZATION_PER_DAY = 0.05				# minimum mobilization gained per day by each mobilizing battalion (the last unit to gain mobilization in a state might have to do with whatever is left)
+	MAX_MOBILIZATION_PER_DAY = 100				# maximum mobilization gained per day by each mobilizing battalion
 
 	BASE_BATTALION_CONVOY_COST = 10				# Cost in convoys per Battalion for shipping lanes
 	

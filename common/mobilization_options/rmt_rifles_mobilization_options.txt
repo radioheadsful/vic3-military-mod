@@ -5,13 +5,18 @@ mobilization_option_muskets = {
 		gunsmithing
 	}
 	possible = {
-		NOT = {
-			scope:military_formation = {
-				OR = {
-					has_mobilization_option = mobilization_option:mobilization_option_rifles
-					has_mobilization_option = mobilization_option:mobilization_option_repeaters
-					has_mobilization_option = mobilization_option:mobilization_option_bolt_action_rifles
-				}
+		market ?= {
+			mg:small_arms ?= {
+				market_goods_sell_orders > 0
+			}
+		}
+	}
+	on_activate = {
+		custom_tooltip = {
+			text = mobilization_option_it_hurts_organization_to_add_firearms_tt
+			add_organization = {
+				value = organization
+				multiply = -0.5
 			}
 		}
 	}
@@ -23,6 +28,8 @@ mobilization_option_muskets = {
 		unit_combat_unit_type_irregular_infantry_defense_mult = 0.2
 		unit_combat_unit_type_line_infantry_offense_mult = 0.1
 		unit_combat_unit_type_line_infantry_defense_mult = 0.1
+		unit_combat_unit_type_irregular_infantry_kill_rate_add = 0.05
+		unit_combat_unit_type_line_infantry_kill_rate_add = 0.05
 	}
 	ai_weight = {
 		value = 1
@@ -36,13 +43,12 @@ mobilization_option_rifles = {
 		rifling
 	}
 	possible = {
-		NOT = {
-			scope:military_formation = {
-				OR = {
-					has_mobilization_option = mobilization_option:mobilization_option_muskets
-					has_mobilization_option = mobilization_option:mobilization_option_repeaters
-					has_mobilization_option = mobilization_option:mobilization_option_bolt_action_rifles
-				}
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_muskets
+		}
+		market ?= {
+			mg:small_arms ?= {
+				market_goods_sell_orders > 0
 			}
 		}
 	}
@@ -51,16 +57,7 @@ mobilization_option_rifles = {
 			text = mobilization_option_it_hurts_organization_to_add_firearms_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
-			}
-		}
-	}
-	on_deactivate = {
-		custom_tooltip = {
-			text = mobilization_option_it_hurts_organization_to_remove_firearms_tt
-			add_organization = {
-				value = organization
-				multiply = -0.25
+				multiply = -0.5
 			}
 		}
 	}
@@ -74,6 +71,9 @@ mobilization_option_rifles = {
 		unit_combat_unit_type_line_infantry_defense_mult = 0.2
 		unit_combat_unit_type_skirmish_infantry_offense_mult = 0.1
 		unit_combat_unit_type_skirmish_infantry_defense_mult = 0.1
+		unit_combat_unit_type_irregular_infantry_kill_rate_add = 0.1
+		unit_combat_unit_type_line_infantry_kill_rate_add = 0.1
+		unit_combat_unit_type_skirmish_infantry_kill_rate_add = 0.1
 	}
 	ai_weight = {
 		value = 5
@@ -87,13 +87,12 @@ mobilization_option_repeaters = {
 		repeaters
 	}
 	possible = {
-		NOT = {
-			scope:military_formation = {
-				OR = {
-					has_mobilization_option = mobilization_option:mobilization_option_muskets
-					has_mobilization_option = mobilization_option:mobilization_option_rifles
-					has_mobilization_option = mobilization_option:mobilization_option_bolt_action_rifles
-				}
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_rifles
+		}
+		market ?= {
+			mg:small_arms ?= {
+				market_goods_sell_orders > 0
 			}
 		}
 	}
@@ -102,21 +101,12 @@ mobilization_option_repeaters = {
 			text = mobilization_option_it_hurts_organization_to_add_firearms_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
-			}
-		}
-	}
-	on_deactivate = {
-		custom_tooltip = {
-			text = mobilization_option_it_hurts_organization_to_remove_firearms_tt
-			add_organization = {
-				value = organization
-				multiply = -0.25
+				multiply = -0.5
 			}
 		}
 	}
 	upkeep_modifier_unscaled = {
-		goods_input_small_arms_mult = 0.25
+		goods_input_small_arms_mult = 0.15
 	}
 	unit_modifier = {
 		unit_combat_unit_type_irregular_infantry_offense_mult = 0.4
@@ -129,6 +119,11 @@ mobilization_option_repeaters = {
 		unit_combat_unit_type_trench_infantry_defense_mult = 0.1
 		unit_combat_unit_type_rifle_cavalry_offense_mult = 0.1
 		unit_combat_unit_type_rifle_cavalry_defense_mult = 0.1
+		unit_combat_unit_type_irregular_infantry_kill_rate_add = 0.2
+		unit_combat_unit_type_line_infantry_kill_rate_add = 0.2
+		unit_combat_unit_type_skirmish_infantry_kill_rate_add = 0.2
+		unit_combat_unit_type_trench_infantry_kill_rate_add = 0.2
+		unit_combat_unit_type_rifle_cavalry_kill_rate_add = 0.2
 	}
 	ai_weight = {
 		value = 10
@@ -142,13 +137,12 @@ mobilization_option_bolt_action_rifles = {
 		bolt_action_rifles
 	}
 	possible = {
-		NOT = {
-			scope:military_formation = {
-				OR = {
-					has_mobilization_option = mobilization_option:mobilization_option_muskets
-					has_mobilization_option = mobilization_option:mobilization_option_rifles
-					has_mobilization_option = mobilization_option:mobilization_option_repeaters
-				}
+		scope:military_formation = {
+			has_mobilization_option = mobilization_option:mobilization_option_repeaters
+		}
+		market ?= {
+			mg:small_arms ?= {
+				market_goods_sell_orders > 0
 			}
 		}
 	}
@@ -157,21 +151,12 @@ mobilization_option_bolt_action_rifles = {
 			text = mobilization_option_it_hurts_organization_to_add_firearms_tt
 			add_organization = {
 				value = organization
-				multiply = -0.25
-			}
-		}
-	}
-	on_deactivate = {
-		custom_tooltip = {
-			text = mobilization_option_it_hurts_organization_to_remove_firearms_tt
-			add_organization = {
-				value = organization
-				multiply = -0.25
+				multiply = -0.5
 			}
 		}
 	}
 	upkeep_modifier_unscaled = {
-		goods_input_small_arms_mult = 0.5
+		goods_input_small_arms_mult = 0.2
 	}
 	unit_modifier = {
 		unit_combat_unit_type_irregular_infantry_offense_mult = 0.5
@@ -186,6 +171,12 @@ mobilization_option_bolt_action_rifles = {
 		unit_combat_unit_type_rifle_cavalry_defense_mult = 0.2
 		unit_combat_unit_type_mechanized_infantry_offense_mult = 0.1
 		unit_combat_unit_type_mechanized_infantry_defense_mult = 0.1
+		unit_combat_unit_type_irregular_infantry_kill_rate_add = 0.3
+		unit_combat_unit_type_line_infantry_kill_rate_add = 0.3
+		unit_combat_unit_type_skirmish_infantry_kill_rate_add = 0.3
+		unit_combat_unit_type_trench_infantry_kill_rate_add = 0.3
+		unit_combat_unit_type_rifle_cavalry_kill_rate_add = 0.3
+		unit_combat_unit_type_mechanized_infantry_kill_rate_add = 0.3
 	}
 	ai_weight = {
 		value = 20

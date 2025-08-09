@@ -106,6 +106,20 @@ unit_combat_unit_type_rifle_cavalry_defense_mult = {
 	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
 }
 
+unit_combat_unit_type_irregular_infantry_kill_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_line_infantry_kill_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
 unit_combat_unit_type_skirmish_infantry_kill_rate_add = {
 	good = yes
 	percent = yes
@@ -121,6 +135,13 @@ unit_combat_unit_type_trench_infantry_kill_rate_add = {
 }
 
 unit_combat_unit_type_mechanized_infantry_kill_rate_add = {
+	good = yes
+	percent = yes
+	num_decimals = 0
+	ai_value = 10000 # +1% offense/defense = same value as 100 pounds of profit
+}
+
+unit_combat_unit_type_rifle_cavalry_kill_rate_add = {
 	good = yes
 	percent = yes
 	num_decimals = 0
@@ -179,37 +200,37 @@ unit_combat_unit_type_battle_tank_offense_mult = {
 
 # BATTLECON MODIFIERS
 character_battle_condition_entrenched_mult = {
-	good = yes
+	neutral = yes
 	percent = yes
 	num_decimals = 0
 }
 
 character_battle_condition_caught_off_guard_mult = {
-	good = yes
+	neutral = yes
 	percent = yes
 	num_decimals = 0
 }
 
 character_battle_condition_in_position_mult = {
-	good = yes
+	neutral = yes
 	percent = yes
 	num_decimals = 0
 }
 
 character_battle_condition_organized_deployment_mult = {
-	good = yes
+	neutral = yes
 	percent = yes
 	num_decimals = 0
 }
 
 character_battle_condition_artillery_barrage_mult = {
-	good = yes
+	neutral = yes
 	percent = yes
 	num_decimals = 0
 }
 
 character_battle_condition_exhausted_pursuit_mult = {
-	good = no
+	neutral = yes
 	percent = yes
 	num_decimals = 0
 }

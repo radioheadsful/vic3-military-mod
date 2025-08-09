@@ -11,10 +11,16 @@
 			severity = invalid
 			has_role = general
 		}
+		NOR = {
+			has_trait = ambitious
+			has_trait = arrogant
+			has_trait = cruel
+			has_trait = reckless
+			has_trait = wrathful
+		}
 	}
 	modifier = {
 		unit_defense_mult = 0.05
-		unit_morale_recovery_mult = 0.1
 	}
 	ai_weight = {
 		value = 1
@@ -35,21 +41,15 @@ defend_counter_attack = {
 			has_role = general
 		}
 		OR = {
-			has_trait = reckless
-			has_trait = persistent
-			has_trait = direct
-			has_trait = arrogant
 			has_trait = ambitious
-			has_trait = imperious
-			has_trait = wrathful
+			has_trait = arrogant
 			has_trait = cruel
-			has_trait = brave
-			has_trait = imposing
+			has_trait = reckless
+			has_trait = wrathful
 		}
 	}
 	modifier = {
 		unit_defense_mult = 0.1
-		unit_morale_recovery_mult = 0.1
 		unit_recovery_rate_add = -0.1
 		unit_kill_rate_add = 0.1
 		character_battle_condition_surprise_maneuver_mult = 0.5
@@ -77,11 +77,10 @@ defend_fortified = {
 			severity = invalid
 			owner = {
 				has_technology_researched = field_works
+				NOT = {
+					has_technology_researched = defense_in_depth
+				}
 			}
-		}
-		NOR = {
-			has_trait = reckless
-			has_trait = arrogant
 		}
 		AND = {
 			has_role = general
@@ -115,8 +114,7 @@ defend_fortified = {
 	}
 	modifier = {
 		unit_defense_mult = 0.15
-		unit_morale_recovery_mult = 0.2
-		unit_morale_loss_mult = -0.15
+		unit_recovery_rate_add = 0.1
 		character_battle_condition_dug_in_mult = 1
 		character_battle_condition_caught_off_guard_mult = -1
 	}
@@ -143,11 +141,10 @@ defend_delaying_tactics = {
 			severity = invalid
 			owner = {
 				has_technology_researched = defense_in_depth
+				NOT = {
+					has_technology_researched = trench_works
+				}
 			}
-		}
-		NOR = {
-			has_trait = reckless
-			has_trait = arrogant
 		}
 		AND = {
 			has_role = general
@@ -175,8 +172,7 @@ defend_delaying_tactics = {
 	}
 	modifier = {
 		unit_defense_mult = 0.25
-		unit_morale_recovery_mult = 0.2
-		unit_morale_loss_mult = -0.25
+		unit_recovery_rate_add = 0.15
 		character_battle_condition_dug_in_mult = 1
 		character_battle_condition_surprise_maneuver_mult = 1
 		character_battle_condition_caught_off_guard_mult = -1.5
@@ -206,10 +202,6 @@ defend_entrench = {
 				has_technology_researched = trench_works
 			}
 		}
-		NOR = {
-			has_trait = reckless
-			has_trait = arrogant
-		}
 		AND = {
 			has_role = general
 			OR = {
@@ -230,8 +222,7 @@ defend_entrench = {
 	}
 	modifier = {
 		unit_defense_mult = 0.5
-		unit_morale_recovery_mult = 0.2
-		unit_morale_loss_mult = -0.25
+		unit_recovery_rate_add = 0.2
 		character_battle_condition_entrenched_mult = 2
 		character_battle_condition_caught_off_guard_mult = -2
 	}
@@ -253,18 +244,10 @@ defend_organized = {
 			severity = invalid
 			has_role = general
 		}
-		OR = {
-			# Smart
-			has_trait = innovative
-			has_trait = meticulous
-			# Generic
-			has_trait = basic_defensive_strategist
-			has_trait = experienced_defensive_strategist
-			has_trait = expert_defensive_strategist
-			# Specific
-			has_trait = stalwart_defender
-			has_trait = defense_in_depth_specialist
-			has_trait = trench_rat
+		NOR = {
+			has_trait = arrogant
+			has_trait = bigoted
+			has_trait = reckless
 		}
 		AND = {
 			has_role = general
@@ -272,40 +255,39 @@ defend_organized = {
 				commander_military_formation = {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_irregular_infantry
-						value >= 0.6
+						value >= 0.5
 					}
 				}
 				commander_military_formation = {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_line_infantry
-						value >= 0.6
+						value >= 0.5
 					}
 				}
 				commander_military_formation = {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_skirmish_infantry
-						value >= 0.6
+						value >= 0.5
 					}
 				}
 				commander_military_formation = {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_trench_infantry
-						value >= 0.6
+						value >= 0.5
 					}
 				}
 				commander_military_formation = {
 					formation_army_unit_type_fraction = {
 						target = unit_type:combat_unit_type_mechanized_infantry
-						value >= 0.6
+						value >= 0.5
 					}
 				}
 			}
 		}
 	}
 	modifier = {
-		unit_defense_mult = 0.25
-		unit_morale_recovery_mult = 0.2
-		unit_morale_loss_mult = 0.25
+		unit_defense_mult = 0.15
+		unit_morale_loss_mult = -0.15
 		character_battle_condition_careful_maneuver_mult = 1
 		character_battle_condition_caught_off_guard_mult = -1
 	}

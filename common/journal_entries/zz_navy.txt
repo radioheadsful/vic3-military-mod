@@ -1,0 +1,297 @@
+﻿je_ironclads = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = screw_frigate
+	}
+	possible = {
+		has_technology_researched = ironclad_tech
+		navy_size >= 30
+	}
+	complete = {
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_ironclad
+			value >= 0.2
+		}
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_ironclad
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = military_tech_events.403
+		}
+	}
+	timeout = 3650
+}
+
+je_monitors = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = screw_frigate
+	}
+	possible = {
+		has_technology_researched = monitor_tech
+		navy_size >= 20
+	}
+	complete = {
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_monitor
+			value >= 0.2
+		}
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_monitor
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = military_tech_events.404
+		}
+	}
+	timeout = 3650
+}
+
+je_dreadnoughts = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = ironclad_tech
+		navy_size >= 10
+	}
+	possible = {
+		has_technology_researched = dreadnought
+		navy_size >= 30
+	}
+	complete = {
+		is_at_war = yes
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_dreadnought
+			value >= 0.2
+		}
+		# for these JE's we would want this to be true for X months, but excluding that for the sake of readability
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_dreadnought
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = naval_tech_events.1
+		}
+	}
+	timeout = 3650
+}
+
+je_destroyers = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = monitor_tech
+		has_technology_researched = ironclad_tech
+		navy_size >= 10
+	}
+	possible = {
+		has_technology_researched = destroyer
+		navy_size >= 30
+	}
+	complete = {
+		is_at_war = yes
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_destroyer
+			value >= 0.2
+		}
+		# for these JE's we would want this to be true for X months, but excluding that for the sake of readability
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_destroyer
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = naval_tech_events.2
+		}
+	}
+	timeout = 3650
+}
+
+je_battleships = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = dreadnought
+		navy_size >= 10
+	}
+	possible = {
+		has_technology_researched = battleship_tech
+		navy_size >= 30
+	}
+	complete = {
+		is_at_war = yes
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_battleship
+			value >= 0.2
+		}
+		# for these JE's we would want this to be true for X months, but excluding that for the sake of readability
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_battleship
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = naval_tech_events.3
+		}
+	}
+	timeout = 3650
+}
+
+je_submarines = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		has_technology_researched = self_propelled_torpedoes
+		navy_size >= 10
+	}
+	possible = {
+		has_technology_researched = submarine
+		navy_size >= 30
+	}
+	complete = {
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_submarine
+			value >= 0.2
+		}
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_submarine
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = naval_tech_events.4
+		}
+	}
+	invalid = {
+	}
+	weight = 10000
+	can_deactivate = no
+}
+
+je_carriers = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_technology
+	is_shown_when_inactive = {
+		is_player = yes
+		navy_size >= 10
+		has_technology_researched = dreadnought
+	}
+	possible = {
+		has_technology_researched = carrier_tech
+		navy_size >= 30
+	}
+	complete = {
+		country_navy_unit_type_fraction = {
+			target = unit_type:combat_unit_type_carrier
+			value >= 0.2
+		}
+		any_military_formation = {
+			filter = {
+				is_fleet = yes
+			}
+			any_scope_character = {
+				has_role = admiral
+				commander_military_formation = {
+					formation_navy_unit_type_fraction = {
+						target = unit_type:combat_unit_type_carrier
+						value >= 0.2
+					}
+				}
+			}
+			percent >= 0.25
+		}
+	}
+	on_complete = {
+		trigger_event = {
+			id = naval_tech_events.5
+		}
+	}
+	invalid = {
+	}
+	weight = 10000
+	can_deactivate = no
+}
